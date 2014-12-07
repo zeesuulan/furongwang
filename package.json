@@ -1,0 +1,15 @@
+{
+  "name": "furongwang",
+  "version": "0.0.1",
+  "description": "The story of Furongwang",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-watch": "",
+    "grunt-contrib-concat": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-connect": "",
+    "grunt-contrib-less": "",
+    "connect-livereload": "",
+    "json-proxy": ""
+  }
+}
