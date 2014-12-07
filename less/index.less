@@ -1,27 +1,121 @@
 /* CSS Mobile Reset */
-html, body
-{
- margin: 0;
- padding: 0; 
- border: 0;
+
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.5;
+	font-size: 16px;
+	background: #fff;
+	padding: 5px;
+	color: #000;
+	word-wrap: break-word;
+	-webkit-text-size-adjust: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+p img {
+	float: left;
+	margin: 0 10px 5px 0;
+	padding: 0;
+}
+img {
+	border: 0;
+	max-width: 100%;
+}
+table {
+	width: auto;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-body 
-{
- font-family:Arial,  sans-serif;
- line-height:1.5;
- font-size:16px;
- background: #fff;
- padding:5px;
- color: #000;
- word-wrap: break-word;
- -webkit-text-size-adjust: none;
+/* custom */
+.transition(@argument) {
+	-webkit-transition: @argument;
+	-moz-transition: @argument;
+	-o-transition: @argument;
+	-ms-transition: @argument;
+	transition: @argument;
 }
-
-h1, h2, h3, h4, h5, h6{ font-weight: normal; }
-
-p img { float: left; margin: 0 10px 5px 0; padding: 0; }
-
-img { border: 0; max-width: 100%; }
-
-table { width:auto; border-collapse: collapse;border-spacing: 0; }
+.transform(@argument) {
+	-webkit-transform: @argument;
+	-moz-transform: @argument;
+	-o-transform: @argument;
+	-ms-transform: @argument;
+	transform: @argument;
+}
+.animation(@argument) {
+	animation: @argument;
+	-moz-animation: @argument; /* Firefox */
+	-webkit-animation: @argument; /* Safari 和 Chrome */
+	-o-animation: @argument;
+}
+#loading {
+	width: 20px;
+	height: 100px;
+	border-radius: 10px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	#bar {
+		width: 100%;
+		height: 0;
+		position: absolute;
+		background-color: red;
+		border-radius: 10px;
+	}
+}
+.step {
+	width: 100%;
+	height: 300px;
+	background-color: #ccc;
+	position: absolute;
+	top: 120px;
+	&.s_1 {
+		z-index: 10;
+	}
+}
+.pages {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	margin-left: -150px;
+	width: 80%;
+	height: 400px;
+	position: relative;
+	div {
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		perspective: 1000;
+		-webkit-perspective: 1000;
+	}
+	.page {
+	}
+	.front {
+		z-index: 2;
+	}
+	.back {
+		z-index: 1;
+		background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0, 0, 0, 0.5)));
+		background: -moz-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0, 0, 0, 0.5)));
+		background: -o-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0, 0, 0, 0.5)));
+		background: -ms-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0, 0, 0, 0.5)));
+		background: gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0, 0, 0, 0.5)));
+		transform: rotateY(180deg);
+	}
+}
+#form {
+	width: 80%;
+	height: 300px;
+	background-color: red;
+	.transition(ease 1s);
+	&.close {
+		.transform(scale(0.8, 0.8) rotateY(180deg));
+	}
+}

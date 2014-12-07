@@ -64,12 +64,14 @@ module.exports = function(grunt) {
       options: {
         mangle: false,
         compress: {
-          drop_console: true
+          drop_console: false
         }
       },
       my_target: {
         files: {
-          'js/frw.js': ['js_source/frw.js'],
+          'js/frw.js': ['js_source/zepto.js',
+                        'js_source/mustache.js',
+                        'js_source/frw.js'],
         }
       }
     }
