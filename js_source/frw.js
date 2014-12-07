@@ -1,12 +1,14 @@
 $(function() {
 
 	var _w = $(window),
+		imageRoot = '../image/',
 		TMP = [].join("")
 
 
 	var loading_p = new Progress("#loading")
 
 	_w.on("imgLoaded", function(evt, per) {
+		// loading_p.render(per * 100, true)
 		loading_p.render(per * 100)
 
 		if (per == 1) {
@@ -21,10 +23,11 @@ $(function() {
 
 	;
 	(new PerLoad([
-		'http://tp4.sinaimg.cn/3602662463/50/5710999801/0',
-		'http://tp4.sinaimg.cn/1449877103/50/5703597626/0',
-		'http://tp1.sinaimg.cn/5224696444/50/5702980875/1',
-		'http://tp2.sinaimg.cn/5212552277/50/40069274683/1'
+		imageRoot + 'bg.png',
+		imageRoot + 'logo.png',
+		imageRoot + 'cal_bg.png',
+		imageRoot + 'progress_bg.png',
+		imageRoot + 'progress_quarter.png'
 	]))
 
 
@@ -38,12 +41,12 @@ $(function() {
 
 	}
 
-	FRW.prototype.submitOK = function(){
-		
+	FRW.prototype.submitOK = function() {
+
 	}
 
-	$("#form").on("click", function(){
-		$("#form").addClass("close").addClass("fold")
+	$("#form").on("click", function() {
+		$("#form").addClass("close")
 	})
 
 	//================================进度条
@@ -62,12 +65,12 @@ $(function() {
 
 		if (uptodown) {
 			this.bar.animate({
-				height: per + "px",
+				height: per + "%",
 				top: 0
 			})
 		} else {
 			this.bar.animate({
-				height: per + "px",
+				height: per + "%",
 				bottom: 0
 			})
 		}

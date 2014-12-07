@@ -4,16 +4,20 @@ html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	height: 100%;
+	overflow: hidden;
 }
 body {
-	font-family: Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	line-height: 1.5;
-	font-size: 16px;
+	font-size: 62.5%;
 	background: #fff;
-	padding: 5px;
+	padding: 0 5px;
 	color: #000;
 	word-wrap: break-word;
 	-webkit-text-size-adjust: none;
+	background: url(../image/bg.png) 0 0 repeat;
+	position: relative;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
@@ -54,20 +58,66 @@ table {
 	-webkit-animation: @argument; /* Safari 和 Chrome */
 	-o-animation: @argument;
 }
-#loading {
-	width: 20px;
-	height: 100px;
-	border-radius: 10px;
+.logo{
+	width: 33%;
 	margin: 0 auto;
+	display: block;
+}
+#footer{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	.txt{
+		text-align: center;
+		color: #eee9e3;
+		font-size: 1.4em;
+		letter-spacing: 0.1em;
+		display: block;
+		margin: 10px 0;
+	}
+}
+#loading {
+	border-radius: 10px;
 	display: block;
 	position: relative;
 	overflow: hidden;
+	background: url(../image/progress_bg.png) 0 0 no-repeat;
+	background-size: cover;
+	width: 70px;
+	height: 290px;
+	left: 50%;
+	top: 4%;
+	margin-left: -6%;
+	.quarter{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: url(../image/progress_quarter.png) 0 0 no-repeat;
+		background-size: cover;
+	}
+	#bar-box{
+		position: absolute;
+		height: 260px;
+		width: 50px;
+		margin-top: 15px;
+	}
 	#bar {
-		width: 100%;
+		width: 20px;
 		height: 0;
 		position: absolute;
 		background-color: red;
-		border-radius: 10px;
+		border-radius: 20px;
+		left: 14px;
+		/*border: 1px solid #C7766F;
+		border-right: 1px solid #ECC0BC;*/
+		background: -webkit-gradient(linear, left top, right top, from(#AE2F22), to(#D4675C));
+		background: -moz-gradient(linear, left top, right top,  from(#AE2F22), to(#D4675C));
+		background: -o-gradient(linear, left top, right top,  from(#AE2F22), to(#D4675C));
+		background: -ms-gradient(linear, left top, right top,  from(#AE2F22), to(#D4675C));
+		background: gradient(linear, left top, right top,  from(#AE2F22), to(#D4675C));
 	}
 }
 .step {
@@ -78,6 +128,37 @@ table {
 	top: 120px;
 	&.s_1 {
 		z-index: 10;
+	}
+}
+#wrap{
+	height: 70%;
+	img{
+		margin-top: -1px;
+	}
+	.body{
+		border-left: 1px solid #ACA6A2;
+		border-right: 1px solid #ACA6A2;
+		background-color: #EEE9E3;
+		height: 100%;
+		text-align: center;
+		position: relative;
+		#loading-foot{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		h2{
+			padding: 0 0;
+			margin: 0;
+			color: #d03728;
+			font-size: 1.5em;
+			font-weight: bolder;
+		}
+		span{
+			font-size: 1.2em;
+			color: #5c5858;
+		}
 	}
 }
 .pages {
@@ -114,6 +195,7 @@ table {
 	width: 80%;
 	height: 300px;
 	background-color: red;
+	display: none;
 	.transition(ease 1s);
 	&.close {
 		.transform(scale(0.8, 0.8) rotateY(180deg));
