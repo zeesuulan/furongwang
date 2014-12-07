@@ -2,39 +2,55 @@ $(function() {
 
 	var _w = $(window),
 		imageRoot = '../image/',
-		TMP = [].join("")
-
-
-	var loading_p = new Progress("#loading")
-
-	_w.on("imgLoaded", function(evt, per) {
-		// loading_p.render(per * 100, true)
-		loading_p.render(per * 100)
-
-		if (per == 1) {
-			_w.trigger("start")
-			//init all
-		}
-	})
-
-	_w.on("start", function() {
-		(new FRW())
-	})
-
-	;
-	(new PerLoad([
-		imageRoot + 'bg.png',
-		imageRoot + 'logo.png',
-		imageRoot + 'cal_bg.png',
-		imageRoot + 'progress_bg.png',
-		imageRoot + 'progress_quarter.png'
-	]))
+		wrap_body = $("#wrap .body"),
+		LOADING_TMP = ['<div id="loading-page">',
+				'<div id="loading" class="loading">',
+					'<div id="bar-box">',
+						'<div id="bar"></div>',
+					'</div>',
+					'<div class="quarter"></div>',
+				'</div>',
+				'<div id="loading-foot" class="loading">',
+					'<h2>温馨提示</h2>',
+					'<span>本帖含有烟草内容,如果您是18岁以下人士,敬请回避!</span>',
+				'</div>',
+				'</div>'
+			].join("")
 
 
 
 	//================================主要流程
-	function FRW() {
+	var FRW = function() {
+		wrap_body.html(LOADING_TMP)
+		this.bind()
 
+		//==========预加载图片
+		var preload = new PerLoad([
+			imageRoot + 'bg.png',
+			imageRoot + 'logo.png',
+			imageRoot + 'cal_bg.png',
+			imageRoot + 'progress_bg.png',
+			imageRoot + 'progress_quarter.png'
+		])
+
+	}
+
+	FRW.prototype.bind = function() {
+		var loading_p = new Progress("#loading"),
+			self = this
+			//======监听事件
+		_w.on("imgLoaded", function(evt, per) {
+			loading_p.render(per * 100)
+			if (per == 1) {
+				_w.trigger("start")
+			}
+		})
+
+		_w.on("start", function() {
+			setTimeout(function(){
+				$(".loading").addClass("over")
+			}, 1000)
+		})
 	}
 
 	FRW.prototype.renderStep = function() {
@@ -45,12 +61,9 @@ $(function() {
 
 	}
 
-	$("#form").on("click", function() {
-		$("#form").addClass("close")
-	})
 
 	//================================进度条
-	function Progress(id) {
+	var Progress = function(id) {
 
 		if ($(id).length > 0) {
 			this.ele = $(id)
@@ -77,7 +90,8 @@ $(function() {
 	}
 
 	//================================图片预加载
-	function PerLoad(img_list) {
+	var PerLoad = function(img_list) {
+
 		if ($.isArray(img_list)) {
 			var len = img_list.length,
 				loadedNum = 0
@@ -93,6 +107,15 @@ $(function() {
 			})
 		}
 	}
+
+	//===============================初始化
+	;
+	(new FRW())
+
+	$("#form").on("click", function() {
+		$("#form").addClass("close")
+	})
+
 
 
 })
