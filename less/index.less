@@ -454,3 +454,52 @@ table {
 		}
 	}
 }
+
+#page5 {
+	border: 3px solid #812D4E;
+	height: 95%;
+	width: 90%;
+	margin: 5% auto 0;
+	position: relative;
+	overflow: hidden;
+	.bb, .girl, .band{
+		position: absolute;
+		width: 85%;
+		opacity: 0;
+	}
+	.bb{
+		top: 0;
+		left: 0;
+		.transform(translate(0, -600px));
+	}
+	.girl{
+		width: 47%;
+		right: 0;
+		bottom: 12%;
+	}
+	.band{
+		width: 43%;
+		left: 8%;
+		bottom: 20%;
+		.transform(translate(0, 1000px));
+	}
+	.footer {
+		height: 12%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../image/mask.png) 0 0 #812D4E;
+		background-size: cover;
+		z-index: 3;
+		p {
+			.transform(translate(0, 50px));
+			color: white;
+			line-height: 1.8em;
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+	}
+}

@@ -70,6 +70,15 @@ $(function() {
 			'	<p>优惠虽好，也要记得表里如一</p>',
 			'</div>',
 			'</div>'
+		].join(""),
+		PAGE_5 = ['<div id="page5">',
+			'<img src="../image/bb.png" class="bb">',
+			'<img src="../image/girl.png" class="girl">',
+			'<img src="../image/band.png" class="band">',
+			'<div class="footer">',
+			'	<p>每一次的承诺都是一次失落</p>',
+			'</div>',
+			'</div>'
 		].join("")
 
 
@@ -104,6 +113,9 @@ $(function() {
 			imageRoot + 'cheat.png',
 			imageRoot + 'kaoshi_txt.png',
 			imageRoot + 'kaoshi_min.png',
+			imageRoot + 'bb.png',
+			imageRoot + 'girl.png',
+			imageRoot + 'band.png',
 			imageRoot + 'mask.png'
 		])
 
@@ -125,7 +137,7 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(4)
+				self.renderStep(5)
 			}, 2000)
 		})
 	}
@@ -148,11 +160,45 @@ $(function() {
 				wrap_body.html(PAGE_4);
 				step_4();
 				break;
+			case 5:
+				wrap_body.html(PAGE_5);
+				step_5();
+				break;
 		}
 	}
 
 	FRW.prototype.submitOK = function() {
 
+	}
+
+	function step_5() {
+		var p = $(".footer p")
+
+		p.css({
+			"lineHeight": $(".footer").height() + "px"
+		})
+
+		$(".band").transition({
+			"y": 0,
+			"opacity": 1
+		})
+
+		$(".bb").transition({
+			"y": 0,
+			"opacity": 1,
+			"delay": 1500
+		})
+
+		$(".girl").transition({
+			"opacity": 1,
+			"delay": 2500
+		})
+
+		p.transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 3500
+		})
 	}
 
 	function step_4() {
@@ -177,7 +223,7 @@ $(function() {
 			"delay": 1000
 		})
 
-		setTimeout(function(){
+		setTimeout(function() {
 			$(".o2").transition({
 				"y": 100,
 				"opacity": 0
@@ -189,7 +235,6 @@ $(function() {
 			"y": 0,
 			"delay": 3500
 		})
-
 	}
 
 	function step_3() {
