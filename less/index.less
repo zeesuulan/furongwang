@@ -262,7 +262,6 @@ table {
 		}
 	}
 }
-
 #page2 {
 	border: 3px solid #231815;
 	height: 95%;
@@ -360,7 +359,7 @@ table {
 		left: 10%;
 		.transform(translate(0, -500px));
 	}
-	.cheat{
+	.cheat {
 		.transform(translate(0, 0));
 		opacity: 0;
 	}
@@ -368,7 +367,7 @@ table {
 		width: 11%;
 		left: 22%;
 	}
-	.kaoshi_txt, .kaoshi_min{
+	.kaoshi_txt, .kaoshi_min {
 		width: 24%;
 		bottom: 16%;
 		right: 9%;
@@ -394,5 +393,64 @@ table {
 		}
 	}
 }
-/*C95701*/
-#page4 
+
+/* C95701 */
+#page4 {
+	border: 3px solid #C95701;
+	height: 95%;
+	width: 90%;
+	margin: 5% auto 0;
+	position: relative;
+	overflow: hidden;
+	.o, .o2, .o3, .o_txt, .o_man {
+		position: absolute;
+		width: 46%;
+		bottom: 0;
+	}
+	.o, .o2, .o3 {
+		bottom: 13%;
+		z-index: 1;
+		opacity: 0;
+	}
+	.o {
+		left: 10%;
+	}
+	.o2 {
+		right: 10%;
+		z-index: 2;
+	}
+	.o3 {
+		right: 10%;
+	}
+	.o_txt {
+		width: 37.5%;
+		top: 4%;
+		left: 4%;
+		.transform(translate(-500px, 0));
+	}
+	.o_man {
+		width: 84%;
+		top: 1%;
+		right: 0;
+		.transform(translate(500px, 0));
+	}
+	.footer {
+		height: 12%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../image/mask.png) 0 0 #C95701;
+		background-size: cover;
+		z-index: 3;
+		p {
+			.transform(translate(0, 50px));
+			color: white;
+			line-height: 1.8em;
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+	}
+}

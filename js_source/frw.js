@@ -59,6 +59,17 @@ $(function() {
 			'	<p>知识要记在心里而不是手上</p>',
 			'</div>',
 			'</div>'
+		].join(""),
+		PAGE_4 = ['<div id="page4">',
+			'<img src="../image/o.png" class="orange o">',
+			'<img src="../image/o2.png" class="orange o2">',
+			'<img src="../image/o3.png" class="orange o3">',
+			'<img src="../image/o_txt.png" class="o_txt">',
+			'<img src="../image/o_man.png" class="o_man">',
+			'<div class="footer">',
+			'	<p>优惠虽好，也要记得表里如一</p>',
+			'</div>',
+			'</div>'
 		].join("")
 
 
@@ -114,7 +125,7 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(3)
+				self.renderStep(4)
 			}, 2000)
 		})
 	}
@@ -133,14 +144,51 @@ $(function() {
 				wrap_body.html(PAGE_3);
 				step_3();
 				break;
-			case 3:
+			case 4:
 				wrap_body.html(PAGE_4);
-				step_3();
+				step_4();
 				break;
 		}
 	}
 
 	FRW.prototype.submitOK = function() {
+
+	}
+
+	function step_4() {
+		var p = $(".footer p")
+
+		p.css({
+			"lineHeight": $(".footer").height() + "px"
+		})
+
+		$(".o_txt").transition({
+			"opacity": 1,
+			"x": 0
+		})
+
+		$(".o_man").transition({
+			"opacity": 1,
+			"x": 0
+		})
+
+		$(".orange").transition({
+			"opacity": 1,
+			"delay": 1000
+		})
+
+		setTimeout(function(){
+			$(".o2").transition({
+				"y": 100,
+				"opacity": 0
+			})
+		}, 2500)
+
+		p.transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 3500
+		})
 
 	}
 
