@@ -503,3 +503,53 @@ table {
 		}
 	}
 }
+#page6 {
+	border: 3px solid #1A345D;
+	height: 95%;
+	width: 90%;
+	margin: 5% auto 0;
+	position: relative;
+	overflow: hidden;
+	.oldman, .fp, .insure{
+		position: absolute;
+		width: 85%;
+		opacity: 0;
+	}
+	.oldman{
+		bottom: 10%;
+		right: 0;
+		width: 61%;
+		.transform(translate(600px, 0));
+		z-index: 2;
+	}
+	.fp{
+		width: 9%;
+		left: 68%;
+		top: 41%;
+		.transform(scale(5));
+	}
+	.insure{
+		left: 0;
+		top: 0;
+		.transform(translate(-600px, 0));
+	}
+	.footer {
+		height: 12%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../image/mask.png) 0 0 #1A345D;
+		background-size: cover;
+		z-index: 3;
+		p {
+			.transform(translate(0, 50px));
+			color: white;
+			line-height: 1.8em;
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+	}
+}

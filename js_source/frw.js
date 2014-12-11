@@ -79,6 +79,15 @@ $(function() {
 			'	<p>每一次的承诺都是一次失落</p>',
 			'</div>',
 			'</div>'
+		].join(""),
+		PAGE_6 = ['<div id="page6">',
+			'<img src="../image/oldman.png" class="oldman">',
+			'<img src="../image/fp.png" class="fp">',
+			'<img src="../image/insure.png" class="insure">',
+			'<div class="footer">',
+			'	<p>您先签了这个，我再扶您！</p>',
+			'</div>',
+			'</div>'
 		].join("")
 
 
@@ -137,7 +146,7 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(5)
+				self.renderStep(6)
 			}, 2000)
 		})
 	}
@@ -164,11 +173,46 @@ $(function() {
 				wrap_body.html(PAGE_5);
 				step_5();
 				break;
+			case 6:
+				wrap_body.html(PAGE_6);
+				step_6();
+				break;
 		}
 	}
 
 	FRW.prototype.submitOK = function() {
 
+	}
+
+	function step_6() {
+		var p = $(".footer p")
+
+		p.css({
+			"lineHeight": $(".footer").height() + "px"
+		})
+
+		$(".oldman").transition({
+			"x": 0,
+			"opacity": 1
+		})
+
+		$(".insure").transition({
+			"opacity": 1,
+			"x": 0,
+			"delay": 1500
+		})
+
+		p.transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 2500
+		})
+
+		$(".fp").transition({
+			"transform" : "scale(1)",
+			"opacity": 1,
+			"delay": 4000
+		}, 500)
 	}
 
 	function step_5() {
