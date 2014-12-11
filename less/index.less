@@ -1,5 +1,24 @@
 /* CSS Mobile Reset */
-
+.transition(@argument) {
+	-webkit-transition: @argument;
+	-moz-transition: @argument;
+	-o-transition: @argument;
+	-ms-transition: @argument;
+	transition: @argument;
+}
+.transform(@argument) {
+	-webkit-transform: @argument;
+	-moz-transform: @argument;
+	-o-transform: @argument;
+	-ms-transform: @argument;
+	transform: @argument;
+}
+.animation(@argument) {
+	animation: @argument;
+	-moz-animation: @argument; /* Firefox */
+	-webkit-animation: @argument; /* Safari 和 Chrome */
+	-o-animation: @argument;
+}
 html, body {
 	margin: 0;
 	padding: 0;
@@ -24,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 p img {
 	float: left;
-	margin: 0 10px 5px 0;
+	margin: 0;
 	padding: 0;
 }
 img {
@@ -38,26 +57,6 @@ table {
 }
 
 /* custom */
-.transition(@argument) {
-	-webkit-transition: @argument;
-	-moz-transition: @argument;
-	-o-transition: @argument;
-	-ms-transition: @argument;
-	transition: @argument;
-}
-.transform(@argument) {
-	-webkit-transform: @argument;
-	-moz-transform: @argument;
-	-o-transform: @argument;
-	-ms-transform: @argument;
-	transform: @argument;
-}
-.animation(@argument) {
-	animation: @argument;
-	-moz-animation: @argument; /* Firefox */
-	-webkit-animation: @argument; /* Safari 和 Chrome */
-	-o-animation: @argument;
-}
 .logo {
 	width: 33%;
 	margin: 0 auto;
@@ -101,6 +100,11 @@ table {
 		position: relative;
 		overflow: hidden;
 	}
+	.transform(translate3d(0, 0, 0));
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 }
 #loading {
 	border-radius: 10px;
@@ -155,7 +159,7 @@ table {
 	right: 0;
 	.transition(transform ease 1s);
 	&.over {
-		.transform(translate3d(0, 1000px, 0));
+		.transform(translate3d(0, 100px, 0));
 	}
 	h2 {
 		padding: 0 0;
@@ -194,20 +198,20 @@ table {
 		margin-top: 30px;
 		.left {
 			width: 29%;
-			left: 107px;
+			.transform(translate(107px, 0));
 			opacity: 0;
 			z-index: 1;
 			position: relative;
 		}
 		.middle {
 			width: 35%;
-			top: -200px;
+			.transform(translate(0, -200px));
 			z-index: 10;
 			position: relative;
 		}
 		.right {
 			width: 25%;
-			left: -107px;
+			.transform(translate(-107px, 0));
 			opacity: 0;
 			z-index: 1;
 			position: relative;
@@ -236,16 +240,16 @@ table {
 	}
 	.footer {
 		position: absolute;
-		bottom: 25px;
+		bottom: 26px;
 		margin: 0 20px;
-		.b1, .b2{
+		.b1, .b2 {
 			position: relative;
 		}
-		.b1{
-			left: -1000px;
+		.b1 {
+			.transform(translate(-1000px, 0));
 		}
-		.b2{
-			left: 1000px;
+		.b2 {
+			.transform(translate(1000px, 0));
 		}
 		p {
 			color: #a5383d;
@@ -254,7 +258,141 @@ table {
 			margin: 0;
 			position: relative;
 			opacity: 0;
-			top: 30px;
+			.transform(translate(0, 30px));
 		}
 	}
 }
+
+#page2 {
+	border: 3px solid #231815;
+	height: 95%;
+	width: 90%;
+	margin: 5% auto 0;
+	position: relative;
+	overflow: hidden;
+	.woman, .clock {
+		position: absolute;
+	}
+	.woman {
+		width: 53%;
+		top: 20px;
+		right: 5px;
+		.transform(translate(200px, 0));
+		opacity: 0;
+	}
+	.clock {
+		width: 80px;
+		top: 20px;
+		left: 15%;
+		.h, .m {
+			border-radius: 2px;
+		}
+		.h {
+			border: 2px solid #231815;
+			position: absolute;
+			display: block;
+			width: 18px;
+			top: 38px;
+			left: 36px;
+		}
+		.m {
+			border: 2px solid #231815;
+			position: absolute;
+			display: block;
+			height: 22px;
+			top: 18px;
+			left: 39px;
+		}
+	}
+	.pop1, .pop2, .pop_txt1, .pop_txt2 {
+		width: 43%;
+		position: absolute;
+		left: 5%;
+		opacity: 0;
+		.transform(translate(0, 100px));
+		z-index: 2;
+	}
+	.pop_txt1, .pop_txt2 {
+		left: 28%;
+		bottom: 48%;
+	}
+	.pop_txt2 {
+		bottom: 20%;
+	}
+	.pop1 {
+		bottom: 48%;
+	}
+	.pop2 {
+		bottom: 20%;
+	}
+	.footer {
+		height: 17%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../image/mask.png) 0 0 #231815;
+		background-size: cover;
+		z-index: 3;
+		p {
+			color: white;
+			line-height: 1.5em;
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+	}
+}
+#page3 {
+	border: 3px solid #035596;
+	height: 95%;
+	width: 90%;
+	margin: 5% auto 0;
+	position: relative;
+	overflow: hidden;
+	.hand, .cheat, .pen, .kaoshi_txt, .kaoshi_min {
+		position: absolute;
+		width: 64%;
+	}
+	.hand, .cheat, .pen {
+		top: 0;
+		left: 10%;
+		.transform(translate(0, -500px));
+	}
+	.cheat{
+		.transform(translate(0, 0));
+		opacity: 0;
+	}
+	.pen {
+		width: 11%;
+		left: 22%;
+	}
+	.kaoshi_txt, .kaoshi_min{
+		width: 24%;
+		bottom: 16%;
+		right: 9%;
+		.transform(translate(100px, 0));
+	}
+	.footer {
+		height: 12%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../image/mask.png) 0 0 #035596;
+		background-size: cover;
+		z-index: 3;
+		p {
+			.transform(translate(0, 50px));
+			color: white;
+			line-height: 1.8em;
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+	}
+}
+/*C95701*/
+#page4 

@@ -31,10 +31,38 @@ $(function() {
 			'<img src="../image/bian.png" class="bian b2">',
 			'</div>',
 			'</div>'
+		].join(""),
+		PAGE_2 = ['<div id="page2">',
+			'<div class="clock">',
+			'	<span class="h"></span>',
+			'	<span class="m"></span>',
+			'	<img src="../image/clock.png">',
+			'</div>',
+			'<img src="../image/pop1.png" class="pop1">',
+			'<img src="../image/pop2.png" class="pop2">',
+			'<img src="../image/pop_txt1.png" class="pop_txt1">',
+			'<img src="../image/pop_txt2.png" class="pop_txt2">',
+			'<img src="../image/woman.png" class="woman">',
+			'<div class="footer">',
+			'	<p>“我五分钟后到！”</p>',
+			'	<p>如果没到，请再读一遍此信息。</p>',
+			'</div>',
+			'</div>'
+		].join(""),
+		PAGE_3 = ['<div id="page3">',
+			'<img src="../image/hand.png" class="hand">',
+			'<img src="../image/cheat.png" class="cheat">',
+			'<img src="../image/pen.png" class="pen">',
+			'<img src="../image/kaoshi_txt.png" class="kaoshi_txt kaoshi">',
+			'<img src="../image/kaoshi_min.png" class="kaoshi_min kaoshi">',
+			'<div class="footer">',
+			'	<p>知识要记在心里而不是手上</p>',
+			'</div>',
+			'</div>'
 		].join("")
 
 
-
+	$.fx.speeds._default = 1000;
 	//================================主要流程
 	var FRW = function() {
 		wrap_body.html(LOADING_TMP)
@@ -53,7 +81,19 @@ $(function() {
 			imageRoot + 'kz.png',
 			imageRoot + 'yun.png',
 			imageRoot + 'xin.png',
-			imageRoot + 'bian.png'
+			imageRoot + 'bian.png',
+			imageRoot + 'woman.png',
+			imageRoot + 'clock.png',
+			imageRoot + 'pop1.png',
+			imageRoot + 'pop2.png',
+			imageRoot + 'pop_txt1.png',
+			imageRoot + 'pop_txt2.png',
+			imageRoot + 'pen.png',
+			imageRoot + 'hand.png',
+			imageRoot + 'cheat.png',
+			imageRoot + 'kaoshi_txt.png',
+			imageRoot + 'kaoshi_min.png',
+			imageRoot + 'mask.png'
 		])
 
 	}
@@ -74,15 +114,29 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(1)
-			}, 3000)
+				self.renderStep(3)
+			}, 2000)
 		})
 	}
 
 	FRW.prototype.renderStep = function(step) {
-		if (step == 1) {
-			wrap_body.html(PAGE_1)
-			step_1()
+		switch (step) {
+			case 1:
+				wrap_body.html(PAGE_1);
+				step_1();
+				break;
+			case 2:
+				wrap_body.html(PAGE_2);
+				step_2();
+				break;
+			case 3:
+				wrap_body.html(PAGE_3);
+				step_3();
+				break;
+			case 3:
+				wrap_body.html(PAGE_4);
+				step_3();
+				break;
 		}
 	}
 
@@ -90,36 +144,140 @@ $(function() {
 
 	}
 
+	function step_3() {
+		var p = $(".footer p")
+
+		p.css({
+			"lineHeight": $(".footer").height() + "px"
+		})
+		$(".hand").transition({
+			"y": 0,
+			"opacity": 1
+		}, 1500)
+
+		$(".kaoshi").transition({
+			"x": 0,
+			"opacity": 1
+		})
+
+		$(".pen").transition({
+			"opacity": 1,
+			"x": 10,
+			"y": 10,
+			"delay": 1500
+		}, "linear").transition({
+			"x": 60,
+			"y": 40
+		}, "linear").transition({
+			"x": 10,
+			"y": 80
+		}, "linear").transition({
+			"x": 60,
+			"y": 120
+		}, "linear").transition({
+			"x": 10,
+			"y": 140
+		}, "linear")
+
+		$(".cheat").transition({
+			"opacity": 1,
+			"delay": 4500
+		}, 3000)
+
+		p.transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 6500
+		}, 1000)
+
+	}
+
+	function step_2() {
+
+		var p = $(".footer p")
+		p.css({
+			"lineHeight": ($(".footer").height() / 2) + "px"
+		})
+		$(".woman").transition({
+			"x": 0,
+			"opacity": 1
+		})
+
+		$(".pop1").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 1000
+		})
+
+		$(".pop_txt1").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 2000
+		})
+
+		p.eq(0).transition({
+			"opacity": 1,
+			"delay": 3000
+		})
+
+		$(".m").css({
+			"transformOrigin": '2px 22px'
+		}).transition({
+			"rotate": "180deg",
+			"delay": 4500
+		}, 3000)
+
+		$(".pop2").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 7500
+		})
+
+		$(".pop_txt2").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 8500
+		})
+
+		p.eq(1).transition({
+			"opacity": 1,
+			"delay": 9500
+		})
+	}
+
 	function step_1() {
-		$(".middle").animate({
-			"top": "0px"
+		$(".middle").transition({
+			"y": "0px"
 		}, function() {
-			$(".fello").animate({
-				"left": 0,
+			$(".fello").transition({
+				"x": 0,
 				"opacity": 1
 			})
 		})
-		$(".kz").animate({
-			"left": "6%",
-			"opacity": 1
+		$(".kz").transition({
+			"x": "6%",
+			"opacity": 1,
+			"delay": 500
 		})
-		$(".xin").animate({
-			"opacity": 1
+		$(".xin").transition({
+			"opacity": 1,
+			"delay": 800
 		})
-		$(".yun").animate({
-			"opacity": 1
+		$(".yun").transition({
+			"opacity": 1,
+			"delay": 1000
 		})
 		var p = $(".footer p")
-		$(".bian").animate({
-			"left": 0
+		$(".bian").transition({
+			"x": 0
 		}, function() {
 			var max = p.length,
 				index = 0,
 				cid = setInterval(function() {
 					if (index < max) {
-						p.eq(index).animate({
+						p.eq(index).transition({
 								"opacity": 1,
-								"top": 0
+								"y": 0
 							})
 							++index
 					} else {
@@ -143,12 +301,12 @@ $(function() {
 		if (per < 0) per = 0
 
 		if (uptodown) {
-			this.bar.animate({
+			this.bar.css({
 				height: per + "%",
 				top: 0
 			})
 		} else {
-			this.bar.animate({
+			this.bar.css({
 				height: per + "%",
 				bottom: 0
 			})

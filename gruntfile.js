@@ -69,9 +69,9 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'js/frw.js': ['js_source/zepto.js',
+          'js/frw.js': ['js_source/jquery.min.js',
+                        'js_source/jquery.transit.js',
                         'js_source/mustache.js',
-                        'js_source/move.js',
                         'js_source/frw.js'],
         }
       }
