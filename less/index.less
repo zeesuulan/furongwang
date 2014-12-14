@@ -454,7 +454,6 @@ table {
 		}
 	}
 }
-
 #page5 {
 	border: 3px solid #812D4E;
 	height: 95%;
@@ -462,22 +461,22 @@ table {
 	margin: 5% auto 0;
 	position: relative;
 	overflow: hidden;
-	.bb, .girl, .band{
+	.bb, .girl, .band {
 		position: absolute;
 		width: 85%;
 		opacity: 0;
 	}
-	.bb{
+	.bb {
 		top: 0;
 		left: 0;
 		.transform(translate(0, -600px));
 	}
-	.girl{
+	.girl {
 		width: 47%;
 		right: 0;
 		bottom: 12%;
 	}
-	.band{
+	.band {
 		width: 43%;
 		left: 8%;
 		bottom: 20%;
@@ -510,25 +509,25 @@ table {
 	margin: 5% auto 0;
 	position: relative;
 	overflow: hidden;
-	.oldman, .fp, .insure{
+	.oldman, .fp, .insure {
 		position: absolute;
 		width: 85%;
 		opacity: 0;
 	}
-	.oldman{
+	.oldman {
 		bottom: 10%;
 		right: 0;
 		width: 61%;
 		.transform(translate(600px, 0));
 		z-index: 2;
 	}
-	.fp{
+	.fp {
 		width: 9%;
 		left: 68%;
 		top: 41%;
 		.transform(scale(5));
 	}
-	.insure{
+	.insure {
 		left: 0;
 		top: 0;
 		.transform(translate(-600px, 0));
@@ -550,6 +549,115 @@ table {
 			margin: 0;
 			padding: 0;
 			opacity: 0;
+		}
+	}
+}
+#page7 {
+	position: relative;
+	#loading {
+		left: 65%;
+		margin-top: 8%;
+	}
+	p {
+		position: absolute;
+		bottom: -12%;
+		left: 60%;
+		color: red;
+		font-weight: bolder;
+		font-size: 1.4em;
+		letter-spacing: 0.2em;
+	}
+	.list {
+		display: block;
+		position: absolute;
+		margin-top: 3%;
+		margin-left: 25%;
+		span {
+			display: block;
+			width: 100px;
+			text-align: left;
+			font-size: 1.5em;
+			margin: .4em 0;
+			font-weight: bolder;
+			opacity: 0;
+			.transform(translate(0, 20px));
+		}
+	}
+	#list_2 {
+		opacity: 0;
+		.transform(translate(-100px, 0));
+		span {
+			opacity: 1;
+			.transform(translate(0, 0));
+		}
+	}
+}
+#page8 {
+	position: relative;
+	height: 100%;
+	width: 95%;
+	overflow: hidden;
+	.title, .yun, .yan, .yun2, .bian, .jianding, .txt {
+		position: absolute;
+		opacity: 0;
+	}
+	.yun {
+		width: 40%;
+		top: 13%;
+		right: 3%;
+	}
+	.yun2 {
+		width: 41%;
+		top: 36%;
+		left: 8%;
+	}
+	.yan {
+		width: 37.5%;
+		left: 0;
+		right: 0;
+		top: 16%;
+		margin: 0 auto;
+		.transform(scale(2) rotateY(180deg));
+	}
+	.title {
+		width: 89%;
+		left: 0;
+		right: 0;
+		top: 4%;
+		margin: 0 auto;
+		.transform(translate(0, -100px))
+	}
+	.bian {
+		width: 89%;
+		bottom: 15%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		.transform(translate(0, 100px))
+	}
+	.jianding {
+		width: 89%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		.transform(translate(0, 100px))
+	}
+	.txt {
+		width: 89%;
+		bottom: 18%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		p {
+			opacity: 0;
+			margin: 0;
+			line-height: 1.4em;
+			font-size: 1.4em;
+			font-weight: bolder;
+			color: #a5383d;
+			position: relative;
+			.transform(translate(0, 30px))
 		}
 	}
 }

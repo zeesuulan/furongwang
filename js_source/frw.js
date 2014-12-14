@@ -88,6 +88,51 @@ $(function() {
 			'	<p>您先签了这个，我再扶您！</p>',
 			'</div>',
 			'</div>'
+		].join(""),
+		PAGE_7 = ['<div id="page7">',
+			'<div id="list_1" class="list">',
+			'    <span>渐渐地&nbsp;我们</span>',
+			'    <span>失去了&nbsp;信任</span>',
+			'    <span>失去了&nbsp;朋友</span>',
+			'    <span>失去了&nbsp;圈子</span>',
+			'    <span>失去了&nbsp;资源</span>',
+			'    <span>失去了&nbsp;客户</span>',
+			'    <span>失去了&nbsp;伙伴</span>',
+			'    <span>失去了&nbsp;前程</span>',
+			'    <span>失去了&nbsp;人生...</span>',
+			'</div>',
+			'<div id="list_2" class="list">',
+			'    <span>所以我们不妨</span>',
+			'    <span>多一点&nbsp;真诚</span>',
+			'    <span>少一点&nbsp;假意</span>',
+			'    <span>多一点&nbsp;真话</span>',
+			'    <span>少一点&nbsp;谎言</span>',
+			'    <span>多一点&nbsp;真实</span>',
+			'    <span>少一点&nbsp;浮夸</span>',
+			'    <span>慎重地&nbsp;许诺</span>',
+			'    <span>勇敢地&nbsp;担当...</span>',
+			'</div>',
+			'<div id="loading" class="loading_8">',
+			'    <div id="bar-box">',
+			'        <div id="bar"></div>',
+			'    </div>',
+			'    <div class="quarter"></div>',
+			'</div>',
+			'<p>信誉度</p>',
+			'</div>'
+		].join(""),
+		PAGE_8 = ['<div id="page8">',
+			'<img src="../image/title.png" class="title s1">',
+			'<img src="../image/yun.png" class="yun y">',
+			'<img src="../image/yun2.png" class="yun2 y">',
+			'<img src="../image/yan.png" class="yan">',
+			'<img src="../image/bian.png" class="bian s1">',
+			'<img src="../image/jianding.png" class="jianding">',
+			'<div class="txt">',
+			'    <p>真诚的邀请您成为我们的君信品鉴师</p>',
+			'    <p>您将有机会免费获得一盒君信芙蓉王</p>',
+			'</div>',
+			'</div>'
 		].join("")
 
 
@@ -125,17 +170,23 @@ $(function() {
 			imageRoot + 'bb.png',
 			imageRoot + 'girl.png',
 			imageRoot + 'band.png',
+			imageRoot + 'title.png',
+			imageRoot + 'yun.png',
+			imageRoot + 'yan.png',
+			imageRoot + 'oldman.png',
+			imageRoot + 'fp.png',
+			imageRoot + 'insure.png',
 			imageRoot + 'mask.png'
 		])
 
 	}
 
 	FRW.prototype.bind = function() {
-		var loading_p = new Progress("#loading"),
+		var loading_p = new Progress(".loading"),
 			self = this
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
-			loading_p.render(per * 100)
+			loading_p.render(per * 100, false, 0)
 			if (per == 1) {
 				_w.trigger("start")
 			}
@@ -146,7 +197,7 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(6)
+				self.renderStep(8)
 			}, 2000)
 		})
 	}
@@ -177,11 +228,100 @@ $(function() {
 				wrap_body.html(PAGE_6);
 				step_6();
 				break;
+			case 7:
+				wrap_body.html(PAGE_7);
+				step_7();
+				break;
+			case 8:
+				wrap_body.html(PAGE_8);
+				step_8();
+				break;
 		}
 	}
 
 	FRW.prototype.submitOK = function() {
 
+	}
+
+	function step_8() {
+		$(".s1").transition({
+			"opacity": 1,
+			"y": 0
+		}, 500)
+
+		$(".yan").transition({
+			"rotateY": "360",
+			"scale": 1,
+			"opacity": 1,
+			"delay": 500
+		})
+
+		$(".y").transition({
+			"opacity": 1,
+			"delay": 500
+		}, 1500)
+
+		$(".txt").transition({
+			"opacity": 1,
+			"delay": 1000
+		}, function() {
+			$(".txt p").transition({
+				"opacity": 1,
+				"y": 0
+			})
+		})
+
+		$(".jianding").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 2000
+		})
+	}
+
+	function step_7() {
+		var list_1 = $("#list_1"),
+			list_2 = $("#list_2"),
+			list_1_span = list_1.find("span")
+		len = list_1_span.length,
+			index = 0,
+			cid = 0,
+			loading = new Progress(".loading_8"),
+			duration = 500
+
+		loading.render(100, false, 0)
+		list_1.show();
+
+		loading.ele.on("first_over", function() {
+			list_1.transition({
+				"x": -100,
+				"opacity": 0,
+				"delay": duration
+			}, duration)
+			list_2.transition({
+				"x": 0,
+				"opacity": 1,
+				"delay": duration * 2
+			}, duration, function() {
+				loading.render(100, false, duration)
+			})
+		})
+
+		cid = setInterval(function() {
+			if (index != len) {
+				list_1_span.eq(index).transition({
+					"opacity": 1,
+					"y": 0
+				}, duration)
+				if (index > 0) {
+					loading.render((1 - index / len) * 100, false, 500)
+				}
+				++index
+			} else {
+				loading.render((1 - index / len) * 100, false, 500)
+				clearInterval(cid)
+				loading.ele.trigger("first_over")
+			}
+		}, duration)
 	}
 
 	function step_6() {
@@ -209,7 +349,7 @@ $(function() {
 		})
 
 		$(".fp").transition({
-			"transform" : "scale(1)",
+			"transform": "scale(1)",
 			"opacity": 1,
 			"delay": 4000
 		}, 500)
@@ -432,21 +572,35 @@ $(function() {
 		}
 	}
 
-	Progress.prototype.render = function(per, uptodown) {
+	Progress.prototype.render = function(per, uptodown, duration) {
 		if (isNaN(per)) return
 		if (per > 100) per = 100
 		if (per < 0) per = 0
 
 		if (uptodown) {
-			this.bar.css({
-				height: per + "%",
-				top: 0
-			})
+			if (duration == 0) {
+				this.bar.css({
+					height: per + "%",
+					top: 0
+				})
+			} else {
+				this.bar.transition({
+					height: per + "%",
+					bottom: 0
+				}, top)
+			}
 		} else {
-			this.bar.css({
-				height: per + "%",
-				bottom: 0
-			})
+			if (duration == 0) {
+				this.bar.css({
+					height: per + "%",
+					bottom: 0
+				})
+			} else {
+				this.bar.transition({
+					height: per + "%",
+					bottom: 0
+				}, duration)
+			}
 		}
 	}
 
