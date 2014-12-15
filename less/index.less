@@ -55,6 +55,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
 /* custom */
 .logo {
@@ -174,13 +179,108 @@ table {
 	}
 }
 #form {
-	width: 80%;
-	height: 300px;
-	background-color: red;
-	display: none;
-	.transition(ease 1s);
-	&.close {
-		.transform(scale(0.8, 0.8) rotateY(180deg));
+	width: 100%;
+	padding-bottom: 5%;
+	background: url("../image/bg_mask.png") 0 0 repeat #8c0203;
+	.transform(translate(0, -2000px));
+	opacity: 0;
+	.num {
+		width: 21%;
+		margin: 0 auto;
+		display: block;
+	}
+	.f_body {
+		margin: 0 5%;
+		.head, .foot {
+			display: block;
+		}
+		.content {
+			background: url("../image/form_body.png") 0 0 repeat-y;
+			background-size: contain;
+			padding: 0 5% 5%;
+			margin-bottom: -5%;
+		}
+		.logo {
+			width: 33%;
+			margin: 0 auto;
+			display: block;
+		}
+		.form_title {
+			width: 72%;
+			margin: 5% auto;
+			display: block;
+		}
+		p {
+			margin: 0 auto;
+			line-height: 1.4em;
+			font-size: 1.4em;
+			font-weight: bolder;
+			width: 72%;
+			&.sel {
+				background: url("../image/arrow.png") right 0 no-repeat;
+				background-size: contain;
+			}
+		}
+		.form_control {
+			width: 72%;
+			margin: 5% auto;
+			border-bottom: 1px solid #8c0203;
+			position: relative;
+			&.noborder {
+				border: none;
+			}
+			input {
+				height: 2em;
+				border: none;
+				background: transparent;
+				padding: 5px 0;
+				&:focus {
+					outline: none;
+				}
+			}
+			.gender {
+				background: url(../image/check.png) 0 0 no-repeat;
+				background-size: contain;
+				display: inline-block;
+				padding: 5px 0;
+				text-indent: 2.5em;
+				width: 35%;
+				&.sel {
+					background: url(../image/check_sel.png) 0 0 no-repeat;
+					background-size: contain;
+				}
+			}
+			.sel_txt {
+				color: #8c0203;
+				font-size: 1.5em;
+			}
+			.age-list {
+				border: 3px solid #8c0203;
+				color: #8c0203;
+				background-color: #EEE9E3;
+				position: absolute;
+				left: 0;
+				right: 0;
+				display: none;
+				li {
+					line-height: 3em;
+					text-indent: .5em;
+					font-size: 1.5em;
+				}
+			}
+		}
+		.submit {
+			width: 26%;
+			background: url("../image/submit.png") 0 0 no-repeat;
+			background-size: contain;
+			position: absolute;
+			right: 17%;
+			bottom: 2%;
+		}
+		.submited {
+			.transform(scale(2));
+			opacity: 0;
+		}
 	}
 }
 #sound {

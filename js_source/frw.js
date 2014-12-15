@@ -139,44 +139,55 @@ $(function() {
 	$.fx.speeds._default = 1000;
 	//================================主要流程
 	var FRW = function() {
-		wrap_body.html(LOADING_TMP)
+		// wrap_body.html(LOADING_TMP)
 		this.bind()
 
 		//==========预加载图片
 		var preload = new PerLoad([
-			imageRoot + 'bg.png',
-			imageRoot + 'logo.png',
-			imageRoot + 'cal_bg.png',
-			imageRoot + 'progress_bg.png',
-			imageRoot + 'progress_quarter.png',
-			imageRoot + 'frw.png',
-			imageRoot + '500.png',
-			imageRoot + 'zm.png',
-			imageRoot + 'kz.png',
-			imageRoot + 'yun.png',
-			imageRoot + 'xin.png',
-			imageRoot + 'bian.png',
-			imageRoot + 'woman.png',
-			imageRoot + 'clock.png',
-			imageRoot + 'pop1.png',
-			imageRoot + 'pop2.png',
-			imageRoot + 'pop_txt1.png',
-			imageRoot + 'pop_txt2.png',
-			imageRoot + 'pen.png',
-			imageRoot + 'hand.png',
-			imageRoot + 'cheat.png',
-			imageRoot + 'kaoshi_txt.png',
-			imageRoot + 'kaoshi_min.png',
-			imageRoot + 'bb.png',
-			imageRoot + 'girl.png',
-			imageRoot + 'band.png',
-			imageRoot + 'title.png',
-			imageRoot + 'yun.png',
-			imageRoot + 'yan.png',
-			imageRoot + 'oldman.png',
-			imageRoot + 'fp.png',
-			imageRoot + 'insure.png',
-			imageRoot + 'mask.png'
+			'bg.png',
+			'logo.png',
+			'cal_bg.png',
+			'progress_bg.png',
+			'progress_quarter.png',
+			'frw.png',
+			'500.png',
+			'zm.png',
+			'kz.png',
+			'yun.png',
+			'xin.png',
+			'bian.png',
+			'woman.png',
+			'clock.png',
+			'pop1.png',
+			'pop2.png',
+			'pop_txt1.png',
+			'pop_txt2.png',
+			'pen.png',
+			'hand.png',
+			'cheat.png',
+			'kaoshi_txt.png',
+			'kaoshi_min.png',
+			'bb.png',
+			'girl.png',
+			'band.png',
+			'title.png',
+			'yun.png',
+			'yan.png',
+			'oldman.png',
+			'fp.png',
+			'insure.png',
+			'arrow.png',
+			'bg_mask.png',
+			'check.png',
+			'check_sel.png',
+			'form_body.png',
+			'form_head.png',
+			'form_title.png',
+			'form_foot.png',
+			'num.png',
+			'submit.png',
+			'submited.png',
+			'mask.png'
 		])
 
 	}
@@ -236,11 +247,41 @@ $(function() {
 				wrap_body.html(PAGE_8);
 				step_8();
 				break;
+			case 9:
+				// wrap_body.html(PAGE_9);
+				step_9();
+				break;
 		}
 	}
 
 	FRW.prototype.submitOK = function() {
 
+	}
+
+	step_9()
+	function step_9() {
+		$("#wrap").transition({
+			"y": -600,
+			"opacity": 0
+		}, function(){
+			$(this).remove()
+			$("body").css({
+				"height": "auto",
+				"padding": 0
+			})
+		})
+		$("#footer").transition({
+			"y": 300
+		}, function(){
+			$(this).remove()
+		})
+
+		$("#form").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 1000
+		})
+		console.log(9)
 	}
 
 	function step_8() {
@@ -618,7 +659,7 @@ $(function() {
 					_w.trigger("imgLoaded", loadedNum / len)
 					img = null
 				}
-				img.src = item
+				img.src = imageRoot + item
 			})
 		}
 	}
