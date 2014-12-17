@@ -269,7 +269,9 @@ $(function() {
 			"rotateY": 180,
 			"opacity": 0
 		})
-		$(".letter").transition({
+		$(".letter").css({
+			"rotateY": -180,
+		}).transition({
 			"rotateY": 0,
 			"opacity": 1,
 			"z-index": 2
@@ -281,7 +283,7 @@ $(function() {
 			"y": $(".big_logo").height() * 0.8,
 			"delay": 1000
 		})
-		$(".zhang"). transition({
+		$(".zhang").transition({
 			"scale": 1,
 			"opacity": 1,
 			"delay": 1000
@@ -289,6 +291,7 @@ $(function() {
 
 		$(".big_logo").transition({
 			"y": "0",
+			"opacity": 1,
 			"delay": 2000
 		})
 		$(".last").transition({
@@ -314,27 +317,45 @@ $(function() {
 			})
 
 		})
-		$(".f_body").height($(".f_body").height())
+		// $(".f_body").height($(".f_body").height())
 		$("#footer").transition({
 			"y": 300
 		}, function() {
 			$(this).remove()
 		})
-
 		$("#form").transition({
 			"opacity": 1,
-			"height": $(".f_body").height() + 120,
+			"overflow": "hidden",
+			"height": $(".f_body").height() + 20,
 			"y": 0,
 			"delay": 1000
 		})
 
 		$(".submit").on("click", function() {
-			$(".submited").transition({
+			$(".submited").css({
+				"x": 0
+			}).transition({
 				"scale": 1,
 				"opacity": 1
-			}, 500, function(){
+			}, 500, function() {
 				_w.trigger("submitclick")
 			})
+		})
+
+		$(".gender").on("click", function() {
+			$(this).addClass("sel").siblings().removeClass("sel")
+			$("input[name='gender']").val($(this).attr("data"))
+		})
+
+		var ageList = $(".age-list")
+		$(".sel_txt").on("click", function() {
+			ageList.hide()
+			$("#" + $(this).attr("lead") + "_list").show()
+		})
+		ageList.on("click", function(evt) {
+			var lead = $(this).attr("id").replace("_list", "")
+			$(".sel_txt[lead='" + lead + "']").html($(evt.target).html())
+			$(this).hide()
 		})
 	}
 

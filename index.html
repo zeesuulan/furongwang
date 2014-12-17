@@ -15,7 +15,6 @@
     <img src="../image/sound_open.png" id="sound">
     <div id="wrap">
         <div class="body">
-            
         </div>
         <img src="../image/cal_bg.png">
     </div>
@@ -44,8 +43,8 @@
                     </div>
                     <p>性别</p>
                     <div class="form_control noborder">
-                        <span class="gender sel">男</span>
-                        <span class="gender">女</span>
+                        <span class="gender sel" data="1">男</span>
+                        <span class="gender"  data="0">女</span>
                         <input type="hidden" name="gender">
                     </div>
                     <p>手机号码</p>
@@ -54,7 +53,7 @@
                     </div>
                     <p class="sel">选择年龄段</p>
                     <div class="form_control">
-                        <div class="sel_txt">40岁-49岁</div>
+                        <div class="sel_txt" lead="age">40岁-49岁</div>
                         <ul class="age-list" id="age_list">
                             <li>18岁-29岁</li>
                             <li>30岁-39岁</li>
@@ -67,7 +66,7 @@
                     </div>
                     <p class="sel">选择每月平均收入范围</p>
                     <div class="form_control">
-                        <div class="sel_txt">3000-6000元/月</div>
+                        <div class="sel_txt" lead="salary">3000-6000元/月</div>
                         <ul class="age-list" id="salary_list">
                             <li>0-3000元/月</li>
                             <li>3000-6000元/月</li>
@@ -79,7 +78,7 @@
                     </div>
                     <p class="sel">您最喜欢芙蓉王旗下哪个系列</p>
                     <div class="form_control">
-                        <div class="sel_txt">芙蓉王（硬黄）</div>
+                        <div class="sel_txt" lead="favor">芙蓉王（硬黄）</div>
                         <ul class="age-list" id="favor_list">
                             <li>芙蓉王（硬黄）</li>
                             <li>芙蓉王（软黄）</li>

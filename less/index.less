@@ -186,6 +186,7 @@ ul {
 	.big_logo{
 		width: 50%;
 		margin: 20px auto 0;
+		opacity: 0;
 		.transform(translate(0, 60px));
 		display: block;
 	}
@@ -197,9 +198,9 @@ ul {
 	.letter{
 		margin: 0 5%;
 		position: absolute;
-		top: 8%;
+		top: 10%;
 		opacity: 0;
-		.transform(rotateY(-180deg));
+		overflow: hidden;
 		.zhang{
 			width: 70%;
 			position: absolute;
@@ -275,6 +276,7 @@ ul {
 				background: transparent;
 				padding: 5px 0;
 				width: 100%;
+				color: #8c0203;
 				&:focus {
 					outline: none;
 				}
@@ -321,7 +323,7 @@ ul {
 			bottom: -34px;
 		}
 		.submited {
-			.transform(scale(2));
+			.transform(scale(2) translate(1000px, 0));
 			opacity: 0;
 		}
 	}
