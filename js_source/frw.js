@@ -187,6 +187,9 @@ $(function() {
 			'num.png',
 			'submit.png',
 			'submited.png',
+			'share.png',
+			'zhang.png',
+			'letter_cover.png',
 			'mask.png'
 		])
 
@@ -255,33 +258,84 @@ $(function() {
 	}
 
 	FRW.prototype.submitOK = function() {
+		$(".num").remove()
+		$("#form").transition({
+			"height": "100%"
+		})
+		$(".f_body").transition({
+			"scale": ".5",
+			"height": "200px",
+			"overflow": "hidden",
+			"rotateY": 180,
+			"opacity": 0
+		})
+		$(".letter").transition({
+			"rotateY": 0,
+			"opacity": 1,
+			"z-index": 2
+		}, function() {
+			$("body").css({
+				"overflow": "hidden"
+			})
+		}).transition({
+			"y": $(".big_logo").height() * 0.8,
+			"delay": 1000
+		})
+		$(".zhang"). transition({
+			"scale": 1,
+			"opacity": 1,
+			"delay": 1000
+		}, 500)
 
+		$(".big_logo").transition({
+			"y": "0",
+			"delay": 2000
+		})
+		$(".last").transition({
+			"opacity": 1,
+			"delay": 3000
+		})
 	}
 
 	step_9()
+
 	function step_9() {
+		$("body").css({
+			"background": "url(../image/bg_mask.png) 0 0 repeat #8c0203"
+		})
 		$("#wrap").transition({
 			"y": -600,
 			"opacity": 0
-		}, function(){
+		}, function() {
 			$(this).remove()
 			$("body").css({
-				"height": "auto",
+				"overflow": "visible",
 				"padding": 0
 			})
+
 		})
+		$(".f_body").height($(".f_body").height())
 		$("#footer").transition({
 			"y": 300
-		}, function(){
+		}, function() {
 			$(this).remove()
 		})
 
 		$("#form").transition({
 			"opacity": 1,
+			"height": $(".f_body").height() + 120,
 			"y": 0,
 			"delay": 1000
 		})
-		console.log(9)
+
+		$(".submit").on("click", function() {
+			$(".submited").transition({
+				"scale": 1,
+				"opacity": 1
+			}, 500, function(){
+				_w.trigger("submitclick")
+			})
+		})
 	}
 
 	function step_8() {
@@ -665,36 +719,34 @@ $(function() {
 	}
 
 	//===============================初始化
-	;
-	(new FRW())
 
-	$("#form").on("click", function() {
-		$("#form").addClass("close")
-	})
+	var frw = new FRW()
 
-
-	// $(function(){
-	// 	_w.on("imgLoaded", function(evt, per) {
-	// 		if (per == 1) {
-	// 			setTimeout(function(){
-	// 				step_1()
-	// 			}, 1000)
-	// 		}
-	// 	})
-	// 	var preload = new PerLoad([
-	// 		imageRoot + 'bg.png',
-	// 		imageRoot + 'logo.png',
-	// 		imageRoot + 'cal_bg.png',
-	// 		imageRoot + 'progress_bg.png',
-	// 		imageRoot + 'progress_quarter.png',
-	// 		imageRoot + 'frw.png',
-	// 		imageRoot + '500.png',
-	// 		imageRoot + 'zm.png',
-	// 		imageRoot + 'kz.png',
-	// 		imageRoot + 'yun.png',
-	// 		imageRoot + 'xin.png',
-	// 		imageRoot + 'bian.png'
-	// 	])
+	_w.on("submitclick", function() {
+			frw.submitOK()
+		})
+		// $(function(){
+		// 	_w.on("imgLoaded", function(evt, per) {
+		// 		if (per == 1) {
+		// 			setTimeout(function(){
+		// 				step_1()
+		// 			}, 1000)
+		// 		}
+		// 	})
+		// 	var preload = new PerLoad([
+		// 		imageRoot + 'bg.png',
+		// 		imageRoot + 'logo.png',
+		// 		imageRoot + 'cal_bg.png',
+		// 		imageRoot + 'progress_bg.png',
+		// 		imageRoot + 'progress_quarter.png',
+		// 		imageRoot + 'frw.png',
+		// 		imageRoot + '500.png',
+		// 		imageRoot + 'zm.png',
+		// 		imageRoot + 'kz.png',
+		// 		imageRoot + 'yun.png',
+		// 		imageRoot + 'xin.png',
+		// 		imageRoot + 'bian.png'
+		// 	])
 
 	// })
 })

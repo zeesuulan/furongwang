@@ -181,16 +181,56 @@ ul {
 #form {
 	width: 100%;
 	padding-bottom: 5%;
-	background: url("../image/bg_mask.png") 0 0 repeat #8c0203;
 	.transform(translate(0, -2000px));
 	opacity: 0;
+	.big_logo{
+		width: 50%;
+		margin: 20px auto 0;
+		.transform(translate(0, 60px));
+		display: block;
+	}
 	.num {
 		width: 21%;
 		margin: 0 auto;
 		display: block;
 	}
+	.letter{
+		margin: 0 5%;
+		position: absolute;
+		top: 8%;
+		opacity: 0;
+		.transform(rotateY(-180deg));
+		.zhang{
+			width: 70%;
+			position: absolute;
+			top: 15%;
+			left: 50%;
+			margin-left: -33%;
+			opacity: 0;
+			.transform(scale(2));
+		}
+	}
+	.txt{
+		font-size: 14px;
+		color: white;
+		margin: 0 5%;
+		position: absolute;
+		bottom: 23%;
+		opacity: 0;
+	}
+	.share{
+		width: 93%;
+		margin: 0 4%;
+		display: block;
+		position: absolute;
+		bottom: 50px;
+		opacity: 0;
+	}
 	.f_body {
 		margin: 0 5%;
+		position: absolute;
+		top: 2%;
+		.transition(all 1s ease);
 		.head, .foot {
 			display: block;
 		}
@@ -212,8 +252,8 @@ ul {
 		}
 		p {
 			margin: 0 auto;
-			line-height: 1.4em;
-			font-size: 1.4em;
+			line-height: 28px;
+			font-size: 14px;
 			font-weight: bolder;
 			width: 72%;
 			&.sel {
@@ -223,7 +263,7 @@ ul {
 		}
 		.form_control {
 			width: 72%;
-			margin: 5% auto;
+			margin: 10px auto;
 			border-bottom: 1px solid #8c0203;
 			position: relative;
 			&.noborder {
@@ -278,7 +318,7 @@ ul {
 			background-size: contain;
 			position: absolute;
 			right: 17%;
-			bottom: 2%;
+			bottom: -34px;
 		}
 		.submited {
 			.transform(scale(2));
