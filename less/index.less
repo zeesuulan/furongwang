@@ -93,9 +93,7 @@ ul {
 }
 #wrap {
 	height: 70%;
-	img {
-		margin-top: -1px;
-	}
+	overflow: hidden;
 	.body {
 		border-left: 1px solid #ACA6A2;
 		border-right: 1px solid #ACA6A2;
@@ -105,11 +103,41 @@ ul {
 		position: relative;
 		overflow: hidden;
 	}
+	.splite {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 300;
+		display: none;
+	}
+	#juan_box {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -10px;
+		z-index: 100;
+		display: none;
+		.juan {
+			width: 100%;
+			background-color: #EEE9E3;
+			margin-bottom: -10px;
+		}
+		.page {
+			background-color: #EEE9E3;
+			height: 0px;
+			width: 100%;
+		}
+	}
 	.transform(translate3d(0, 0, 0));
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	-ms-backface-visibility: hidden;
+}
+.cal_bg {
+	margin-top: -1px;
+	z-index: 201;
+	position: relative;
 }
 #loading {
 	border-radius: 10px;
@@ -183,7 +211,7 @@ ul {
 	padding-bottom: 5%;
 	.transform(translate(0, -2000px));
 	opacity: 0;
-	.big_logo{
+	.big_logo {
 		width: 50%;
 		margin: 20px auto 0;
 		opacity: 0;
@@ -195,13 +223,13 @@ ul {
 		margin: 0 auto;
 		display: block;
 	}
-	.letter{
+	.letter {
 		margin: 0 5%;
 		position: absolute;
 		top: 10%;
 		opacity: 0;
 		overflow: hidden;
-		.zhang{
+		.zhang {
 			width: 70%;
 			position: absolute;
 			top: 15%;
@@ -211,7 +239,7 @@ ul {
 			.transform(scale(2));
 		}
 	}
-	.txt{
+	.txt {
 		font-size: 14px;
 		color: white;
 		margin: 0 5%;
@@ -219,7 +247,7 @@ ul {
 		bottom: 23%;
 		opacity: 0;
 	}
-	.share{
+	.share {
 		width: 93%;
 		margin: 0 4%;
 		display: block;
@@ -804,5 +832,53 @@ ul {
 			position: relative;
 			.transform(translate(0, 30px))
 		}
+	}
+}
+#share {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 400;
+	display: none;
+	.bear{
+		width: 10%;
+		position: absolute;
+		opacity: 0;
+	}
+	.bear_1{
+		top: 2%;
+		right: 10%;
+		.transform(rotateZ(70deg));
+	}
+	.bear_2{
+		top: 10%;
+		right: 23%;
+		.transform(rotateZ(50deg));
+
+	}
+	.bear_3{
+		top: 21%;
+		right: 34%;
+		.transform(rotateZ(40deg));
+	}
+	.bear_4{
+		top: 34%;
+		right: 40%;
+		.transform(rotateZ(20deg));
+	}
+	.bear_5{
+		top: 46%;
+		right: 30%;
+		.transform(rotateZ(0deg));
+	}
+	p{
+		position: absolute;
+		top: 55%;
+		right: 29%;
+		color: white;
+		font-size: 2em;
 	}
 }

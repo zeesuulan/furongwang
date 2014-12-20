@@ -1,7 +1,7 @@
 $(function() {
 
 	var _w = $(window),
-		imageRoot = '../image/',
+		imageRoot = 'image/',
 		wrap_body = $("#wrap .body"),
 		LOADING_TMP = ['<div id="loading-page">',
 			'<div id="loading" class="loading">',
@@ -18,17 +18,17 @@ $(function() {
 		].join(""),
 		PAGE_1 = ['<div id="page1">',
 			'<div class="header">',
-			'<img src="../image/frw.png" class="left fello"><img src="../image/zm.png" class="middle"><img src="../image/500.png" class="right fello">',
+			'<img src="' + imageRoot + 'frw.png" class="left fello"><img src="' + imageRoot + 'zm.png" class="middle"><img src="' + imageRoot + '500.png" class="right fello">',
 			'</div>',
-			'<img src="../image/kz.png" class="kz">',
-			'<img src="../image/yun.png" class="yun">',
-			'<img src="../image/xin.png" class="xin">',
+			'<img src="' + imageRoot + 'kz.png" class="kz">',
+			'<img src="' + imageRoot + 'yun.png" class="yun">',
+			'<img src="' + imageRoot + 'xin.png" class="xin">',
 			'<div class="footer">',
-			'<img src="../image/bian.png" class="bian b1">',
+			'<img src="' + imageRoot + 'bian.png" class="bian b1">',
 			'<p>我们认为：君子之交，要以</p>',
 			'<p>诚信为本，以信示人，言出由衷，始终不渝</p>',
 			'<p>但生活中，我们依旧发现这样的栗子......</p>',
-			'<img src="../image/bian.png" class="bian b2">',
+			'<img src="' + imageRoot + 'bian.png" class="bian b2">',
 			'</div>',
 			'</div>'
 		].join(""),
@@ -36,13 +36,13 @@ $(function() {
 			'<div class="clock">',
 			'	<span class="h"></span>',
 			'	<span class="m"></span>',
-			'	<img src="../image/clock.png">',
+			'	<img src="' + imageRoot + 'clock.png">',
 			'</div>',
-			'<img src="../image/pop1.png" class="pop1">',
-			'<img src="../image/pop2.png" class="pop2">',
-			'<img src="../image/pop_txt1.png" class="pop_txt1">',
-			'<img src="../image/pop_txt2.png" class="pop_txt2">',
-			'<img src="../image/woman.png" class="woman">',
+			'<img src="' + imageRoot + 'pop1.png" class="pop1">',
+			'<img src="' + imageRoot + 'pop2.png" class="pop2">',
+			'<img src="' + imageRoot + 'pop_txt1.png" class="pop_txt1">',
+			'<img src="' + imageRoot + 'pop_txt2.png" class="pop_txt2">',
+			'<img src="' + imageRoot + 'woman.png" class="woman">',
 			'<div class="footer">',
 			'	<p>“我五分钟后到！”</p>',
 			'	<p>如果没到，请再读一遍此信息。</p>',
@@ -50,40 +50,40 @@ $(function() {
 			'</div>'
 		].join(""),
 		PAGE_3 = ['<div id="page3">',
-			'<img src="../image/hand.png" class="hand">',
-			'<img src="../image/cheat.png" class="cheat">',
-			'<img src="../image/pen.png" class="pen">',
-			'<img src="../image/kaoshi_txt.png" class="kaoshi_txt kaoshi">',
-			'<img src="../image/kaoshi_min.png" class="kaoshi_min kaoshi">',
+			'<img src="' + imageRoot + 'hand.png" class="hand">',
+			'<img src="' + imageRoot + 'cheat.png" class="cheat">',
+			'<img src="' + imageRoot + 'pen.png" class="pen">',
+			'<img src="' + imageRoot + 'kaoshi_txt.png" class="kaoshi_txt kaoshi">',
+			'<img src="' + imageRoot + 'kaoshi_min.png" class="kaoshi_min kaoshi">',
 			'<div class="footer">',
 			'	<p>知识要记在心里而不是手上</p>',
 			'</div>',
 			'</div>'
 		].join(""),
 		PAGE_4 = ['<div id="page4">',
-			'<img src="../image/o.png" class="orange o">',
-			'<img src="../image/o2.png" class="orange o2">',
-			'<img src="../image/o3.png" class="orange o3">',
-			'<img src="../image/o_txt.png" class="o_txt">',
-			'<img src="../image/o_man.png" class="o_man">',
+			'<img src="' + imageRoot + 'o.png" class="orange o">',
+			'<img src="' + imageRoot + 'o2.png" class="orange o2">',
+			'<img src="' + imageRoot + 'o3.png" class="orange o3">',
+			'<img src="' + imageRoot + 'o_txt.png" class="o_txt">',
+			'<img src="' + imageRoot + 'o_man.png" class="o_man">',
 			'<div class="footer">',
 			'	<p>优惠虽好，也要记得表里如一</p>',
 			'</div>',
 			'</div>'
 		].join(""),
 		PAGE_5 = ['<div id="page5">',
-			'<img src="../image/bb.png" class="bb">',
-			'<img src="../image/girl.png" class="girl">',
-			'<img src="../image/band.png" class="band">',
+			'<img src="' + imageRoot + 'bb.png" class="bb">',
+			'<img src="' + imageRoot + 'girl.png" class="girl">',
+			'<img src="' + imageRoot + 'band.png" class="band">',
 			'<div class="footer">',
 			'	<p>每一次的承诺都是一次失落</p>',
 			'</div>',
 			'</div>'
 		].join(""),
 		PAGE_6 = ['<div id="page6">',
-			'<img src="../image/oldman.png" class="oldman">',
-			'<img src="../image/fp.png" class="fp">',
-			'<img src="../image/insure.png" class="insure">',
+			'<img src="' + imageRoot + 'oldman.png" class="oldman">',
+			'<img src="' + imageRoot + 'fp.png" class="fp">',
+			'<img src="' + imageRoot + 'insure.png" class="insure">',
 			'<div class="footer">',
 			'	<p>您先签了这个，我再扶您！</p>',
 			'</div>',
@@ -122,12 +122,12 @@ $(function() {
 			'</div>'
 		].join(""),
 		PAGE_8 = ['<div id="page8">',
-			'<img src="../image/title.png" class="title s1">',
-			'<img src="../image/yun.png" class="yun y">',
-			'<img src="../image/yun2.png" class="yun2 y">',
-			'<img src="../image/yan.png" class="yan">',
-			'<img src="../image/bian.png" class="bian s1">',
-			'<img src="../image/jianding.png" class="jianding">',
+			'<img src="' + imageRoot + 'title.png" class="title s1">',
+			'<img src="' + imageRoot + 'yun.png" class="yun y">',
+			'<img src="' + imageRoot + 'yun2.png" class="yun2 y">',
+			'<img src="' + imageRoot + 'yan.png" class="yan">',
+			'<img src="' + imageRoot + 'bian.png" class="bian s1">',
+			'<img src="' + imageRoot + 'jianding.png" class="jianding">',
 			'<div class="txt">',
 			'    <p>真诚的邀请您成为我们的君信品鉴师</p>',
 			'    <p>您将有机会免费获得一盒君信芙蓉王</p>',
@@ -139,20 +139,27 @@ $(function() {
 	$.fx.speeds._default = 1000;
 	//================================主要流程
 	var FRW = function() {
-		// wrap_body.html(LOADING_TMP)
+		wrap_body.html(LOADING_TMP)
 		this.bind()
+
+		this.juanBox = $("#juan_box")
+		this.splite = $(".splite")
+		this.paging = false
+		this.index = 1
 
 		//==========预加载图片
 		var preload = new PerLoad([
 			'bg.png',
 			'logo.png',
 			'cal_bg.png',
+			'slipte.png',
 			'progress_bg.png',
 			'progress_quarter.png',
 			'frw.png',
 			'500.png',
 			'zm.png',
 			'kz.png',
+			'juan.png',
 			'yun.png',
 			'xin.png',
 			'bian.png',
@@ -190,6 +197,7 @@ $(function() {
 			'share.png',
 			'zhang.png',
 			'letter_cover.png',
+			'bear.png',
 			'mask.png'
 		])
 
@@ -211,9 +219,117 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(8)
+				self.renderStep(1)
 			}, 2000)
 		})
+
+
+		var startY = endY = 0
+		_w.on("touchstart", function(e) {
+			endY = 0
+			startY = e.originalEvent.touches[0].pageY
+		})
+
+		_w.on("touchmove", function(e) {
+			e.preventDefault()
+			endY = e.originalEvent.touches[0].pageY
+		})
+
+		_w.on("touchend", function() {
+			if (startY != endY) {
+				if (endY > startY) {
+					self.prePage()
+				} else {
+					self.nextPage()
+				}
+			}
+		})
+
+		$(".share").on("click", function(){
+			var imgs = $("#share").show().find("img"),
+				len = imgs.length
+
+			imgs.each(function(index, item){
+				$(item).transition({
+					"opacity": 1,
+					"delay": (len - index) * 100
+				})
+			})
+		})
+
+		$("#share").on("click", function(){
+			$("#share").hide().find("img").css({
+				"opacity": 0
+			})
+		})
+	}
+
+	FRW.prototype.unbind = function() {
+		_w.off("touchend")
+		_w.off("touchmove")
+		_w.off("touchstart")
+	}
+
+	FRW.prototype.prePage = function() {
+
+		if (this.paging) return
+
+		var self = this
+		this.paging = true
+		if (self.index > 1) {
+			this.juanBox.css({
+				"y": -1000,
+				"display": "block"
+			}).find(".pre").css({
+				"height": "1000px"
+			})
+
+			this.juanBox.transition({
+				"y": "0"
+			}, function() {
+				$(this).css({
+					"display": "none",
+					"y": 0
+				}).find(".pre").css({
+					"height": "0"
+				})
+				self.paging = false
+				self.renderStep(--self.index)
+				if (self.index == 1) {
+					self.splite.hide()
+				}
+			})
+		}
+	}
+
+	FRW.prototype.nextPage = function() {
+		if (this.paging) return
+
+		var self = this
+		this.paging = true
+		if (self.index < 8) {
+			this.juanBox.css({
+				"display": "block",
+				"y": 1000
+			}).find(".next").css({
+				"height": "1000px"
+			})
+
+			this.juanBox.transition({
+				"y": "0"
+			}, function() {
+				$(this).css({
+					"display": "none"
+				}).find(".next").css({
+					"height": "0"
+				})
+				self.paging = false
+				self.renderStep(++self.index)
+				if (self.index > 1) {
+					self.splite.show()
+				}
+			})
+		}
 	}
 
 	FRW.prototype.renderStep = function(step) {
@@ -300,24 +416,24 @@ $(function() {
 		})
 	}
 
-	step_9()
-
 	function step_9() {
-		$("body").css({
-			"background": "url(../image/bg_mask.png) 0 0 repeat #8c0203"
-		})
-		$("#wrap").transition({
-			"y": -600,
-			"opacity": 0
-		}, function() {
-			$(this).remove()
-			$("body").css({
-				"overflow": "visible",
-				"padding": 0
-			})
+		_w.trigger("form")
 
+		$("body").css({
+			"background": "url(" + imageRoot + "bg_mask.png) 0 0 repeat #8c0203"
 		})
-		// $(".f_body").height($(".f_body").height())
+		$(".cal_stuff").transition({
+				"y": -600,
+				"opacity": 0
+			}, function() {
+				$(this).remove()
+				$("body").css({
+					"overflow": "visible",
+					"padding": 0
+				})
+
+			})
+			// $(".f_body").height($(".f_body").height())
 		$("#footer").transition({
 			"y": 300
 		}, function() {
@@ -391,6 +507,8 @@ $(function() {
 			"opacity": 1,
 			"y": 0,
 			"delay": 2000
+		}).on("click", function() {
+			step_9()
 		})
 	}
 
@@ -746,28 +864,8 @@ $(function() {
 	_w.on("submitclick", function() {
 			frw.submitOK()
 		})
-		// $(function(){
-		// 	_w.on("imgLoaded", function(evt, per) {
-		// 		if (per == 1) {
-		// 			setTimeout(function(){
-		// 				step_1()
-		// 			}, 1000)
-		// 		}
-		// 	})
-		// 	var preload = new PerLoad([
-		// 		imageRoot + 'bg.png',
-		// 		imageRoot + 'logo.png',
-		// 		imageRoot + 'cal_bg.png',
-		// 		imageRoot + 'progress_bg.png',
-		// 		imageRoot + 'progress_quarter.png',
-		// 		imageRoot + 'frw.png',
-		// 		imageRoot + '500.png',
-		// 		imageRoot + 'zm.png',
-		// 		imageRoot + 'kz.png',
-		// 		imageRoot + 'yun.png',
-		// 		imageRoot + 'xin.png',
-		// 		imageRoot + 'bian.png'
-		// 	])
-
-	// })
+	_w.on("form", function() {
+			frw.unbind()
+		})
+	
 })
