@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
     <meta name="keywords" content="芙蓉王,君子,品鉴师" />
     <meta name="description" content="芙蓉王《君.信》征集500名君子品鉴师">
     <title>芙蓉王《君.信》征集500名君子品鉴师</title>
@@ -56,8 +60,8 @@
                     <div class="form_control">
                         <input type="text" name="phone" placeholder="我们将通过此号码与您取得联系。">
                     </div>
-                    <p class="sel">选择年龄段</p>
-                    <div class="form_control">
+                    <p>选择年龄段</p>
+                    <div class="form_control sel" class="">
                         <div class="sel_txt" lead="age">40岁-49岁</div>
                         <ul class="age-list" id="age_list">
                             <li>18岁-29岁</li>
@@ -69,8 +73,8 @@
                         </ul>
                         <input type="hidden" name="age">
                     </div>
-                    <p class="sel">选择每月平均收入范围</p>
-                    <div class="form_control">
+                    <p>选择每月平均收入范围</p>
+                    <div class="form_control sel">
                         <div class="sel_txt" lead="salary">3000-6000元/月</div>
                         <ul class="age-list" id="salary_list">
                             <li>0-3000元/月</li>
@@ -82,7 +86,7 @@
                         <input type="hidden" name="salary">
                     </div>
                     <p class="sel">您最喜欢芙蓉王旗下哪个系列</p>
-                    <div class="form_control">
+                    <div class="form_control sel">
                         <div class="sel_txt" lead="favor">芙蓉王（硬黄）</div>
                         <ul class="age-list" id="favor_list">
                             <li>芙蓉王（硬黄）</li>
@@ -125,6 +129,13 @@
         <p>点击右上角分享</p>
     </div>
 </body>
-<script src="js/frw.js?dwsq"></script>
-
+<script src="js/frw.js?dwsssq"></script>
+<script>
+    WX_SHARE({
+        image: "http://i4.hunantv.com/p1/20141217/0928327704C.png",
+        title: "芙蓉王《君.信》征集500名君子品鉴师",
+        desc: "真诚的邀请您成为我们的君信品鉴师，您将有机会免费获得一盒君信芙蓉王",
+        link: window.location.href
+    })
+</script>
 </html>

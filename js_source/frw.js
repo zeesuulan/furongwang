@@ -82,7 +82,6 @@ $(function() {
 		].join(""),
 		PAGE_6 = ['<div id="page6">',
 			'<img src="' + imageRoot + 'oldman.png" class="oldman">',
-			'<img src="' + imageRoot + 'fp.png" class="fp">',
 			'<img src="' + imageRoot + 'insure.png" class="insure">',
 			'<div class="footer">',
 			'	<p>您先签了这个，我再扶您！</p>',
@@ -147,6 +146,8 @@ $(function() {
 		this.paging = false
 		this.index = 1
 
+
+
 		//==========预加载图片
 		var preload = new PerLoad([
 			'bg.png',
@@ -181,7 +182,6 @@ $(function() {
 			'yun.png',
 			'yan.png',
 			'oldman.png',
-			'fp.png',
 			'insure.png',
 			'arrow.png',
 			'bg_mask.png',
@@ -219,7 +219,7 @@ $(function() {
 				$(".loading").addClass("over")
 			}, 1000)
 			setTimeout(function() {
-				self.renderStep(1)
+				self.renderStep(self.index)
 			}, 2000)
 		})
 
@@ -245,11 +245,11 @@ $(function() {
 			}
 		})
 
-		$(".share").on("click", function(){
+		$(".share").on("click", function() {
 			var imgs = $("#share").show().find("img"),
 				len = imgs.length
 
-			imgs.each(function(index, item){
+			imgs.each(function(index, item) {
 				$(item).transition({
 					"opacity": 1,
 					"delay": (len - index) * 100
@@ -257,7 +257,7 @@ $(function() {
 			})
 		})
 
-		$("#share").on("click", function(){
+		$("#share").on("click", function() {
 			$("#share").hide().find("img").css({
 				"opacity": 0
 			})
@@ -529,12 +529,12 @@ $(function() {
 			list_1.transition({
 				"x": -100,
 				"opacity": 0,
-				"delay": duration
+				"delay": duration * 3
 			}, duration)
 			list_2.transition({
-				"x": 0,
+				"y": 0,
 				"opacity": 1,
-				"delay": duration * 2
+				"delay": duration * 4
 			}, duration, function() {
 				loading.render(100, false, duration)
 			})
@@ -544,8 +544,9 @@ $(function() {
 			if (index != len) {
 				list_1_span.eq(index).transition({
 					"opacity": 1,
+					"scale": 1,
 					"y": 0
-				}, duration)
+				}, duration, "linear")
 				if (index > 0) {
 					loading.render((1 - index / len) * 100, false, 500)
 				}
@@ -573,20 +574,14 @@ $(function() {
 		$(".insure").transition({
 			"opacity": 1,
 			"x": 0,
-			"delay": 1500
+			"delay": 1000
 		})
 
 		p.transition({
 			"opacity": 1,
 			"y": 0,
-			"delay": 2500
+			"delay": 2000
 		})
-
-		$(".fp").transition({
-			"transform": "scale(1)",
-			"opacity": 1,
-			"delay": 4000
-		}, 500)
 	}
 
 	function step_5() {
@@ -601,15 +596,15 @@ $(function() {
 			"opacity": 1
 		})
 
+		$(".girl").transition({
+			"y": 0,
+			"opacity": 1
+		})
+
 		$(".bb").transition({
 			"y": 0,
 			"opacity": 1,
 			"delay": 1500
-		})
-
-		$(".girl").transition({
-			"opacity": 1,
-			"delay": 2500
 		})
 
 		p.transition({
@@ -676,31 +671,28 @@ $(function() {
 			"x": 10,
 			"y": 10,
 			"delay": 1500
-		}, "linear").transition({
+		}, 500, "linear").transition({
 			"x": 60,
 			"y": 40
-		}, "linear").transition({
+		}, 500, "linear").transition({
 			"x": 10,
 			"y": 80
-		}, "linear").transition({
+		}, 500, "linear").transition({
 			"x": 60,
 			"y": 120
-		}, "linear").transition({
+		}, 500, "linear", function() {
+			$(".cheat").transition({
+				"opacity": 1
+			}, 2000)
+		}).transition({
 			"x": 10,
 			"y": 140
-		}, "linear")
-
-		$(".cheat").transition({
-			"opacity": 1,
-			"delay": 4500
-		}, 3000)
-
-		p.transition({
-			"opacity": 1,
-			"y": 0,
-			"delay": 6500
-		}, 1000)
-
+		}, 1000, "linear", function() {
+			p.transition({
+				"opacity": 1,
+				"y": 0
+			})
+		})
 	}
 
 	function step_2() {
@@ -723,36 +715,31 @@ $(function() {
 		$(".pop_txt1").transition({
 			"opacity": 1,
 			"y": 0,
-			"delay": 2000
+			"delay": 1000
 		})
 
-		p.eq(0).transition({
+		$(".pop2").transition({
 			"opacity": 1,
-			"delay": 3000
+			"y": 0,
+			"delay": 2500
+		})
+
+		$(".pop_txt2").transition({
+			"opacity": 1,
+			"y": 0,
+			"delay": 2500
 		})
 
 		$(".m").css({
 			"transformOrigin": '2px 22px'
 		}).transition({
 			"rotate": "180deg",
-			"delay": 4500
-		}, 3000)
-
-		$(".pop2").transition({
-			"opacity": 1,
-			"y": 0,
-			"delay": 7500
+			"delay": 2500
 		})
 
-		$(".pop_txt2").transition({
+		p.transition({
 			"opacity": 1,
-			"y": 0,
-			"delay": 8500
-		})
-
-		p.eq(1).transition({
-			"opacity": 1,
-			"delay": 9500
+			"delay": 4000
 		})
 	}
 
@@ -821,7 +808,7 @@ $(function() {
 				this.bar.transition({
 					height: per + "%",
 					bottom: 0
-				}, top)
+				}, top, "linear")
 			}
 		} else {
 			if (duration == 0) {
@@ -833,7 +820,7 @@ $(function() {
 				this.bar.transition({
 					height: per + "%",
 					bottom: 0
-				}, duration)
+				}, duration, "linear")
 			}
 		}
 	}
@@ -862,10 +849,50 @@ $(function() {
 	var frw = new FRW()
 
 	_w.on("submitclick", function() {
-			frw.submitOK()
-		})
+
+		frw.submitOK()
+	})
 	_w.on("form", function() {
-			frw.unbind()
-		})
-	
+		frw.unbind()
+	})
 })
+
+window.WX_SHARE = function(e) {
+	function i() {
+		WeixinJSBridge.on("menu:share:appmessage", function() {
+			WeixinJSBridge.invoke("sendAppMessage", {
+				// appid: "wxbbc6e0adf8944632",
+				img_width: "290",
+				img_height: "290",
+				img_url: e.image,
+				title: e.title,
+				desc: e.desc,
+				link: e.link
+			}, function() {})
+		})
+	}
+
+	function n() {
+		WeixinJSBridge.on("menu:share:timeline", function() {
+			WeixinJSBridge.invoke("shareTimeline", {
+				// appid: "wxbbc6e0adf8944632",
+				img_width: "290",
+				img_height: "290",
+				img_url: e.image,
+				title: e.title,
+				desc: e.desc,
+				link: e.link
+			}, function() {})
+		})
+	}
+
+	function t() {
+		WeixinJSBridge.on("menu:share:weibo", function() {
+			WeixinJSBridge.invoke("shareWeibo", {
+				content: e.desc,
+				url: e.link
+			}, function() {})
+		})
+	}
+	document.addEventListener && (document.addEventListener("WeixinJSBridgeReady", i, !1), document.addEventListener("WeixinJSBridgeReady", t, !1), document.addEventListener("WeixinJSBridgeReady", n, !1))
+}
