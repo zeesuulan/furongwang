@@ -144,7 +144,6 @@ $(function() {
 		this.splite = $(".splite")
 		this.sound = $("#sound")
 		this.wrap = $("#wrap")
-		this.rainy = document.getElementById("rainy")
 		this.paging = false
 		this.index = 1
 
@@ -209,7 +208,10 @@ $(function() {
 
 	FRW.prototype.bind = function() {
 		var loading_p = new Progress(".loading"),
+			rainy = new Audio("rainy.mp3"),
 			self = this
+
+		rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -219,12 +221,13 @@ $(function() {
 		})
 
 		this.sound.on("click", function(){
-			if(!self.rainy.muted) {
+			
+			if(!rainy.paused) {
 				self.sound.attr("src", "image/sound_close.png")
-				self.rainy.muted = true
+				rainy.pause()
 			}else{
 				self.sound.attr("src", "image/sound_open.png")
-				self.rainy.muted = false
+				rainy.play()
 			}
 		})
 
