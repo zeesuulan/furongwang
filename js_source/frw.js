@@ -139,19 +139,23 @@ $(function() {
 	//================================主要流程
 	var FRW = function() {
 		wrap_body.html(LOADING_TMP)
-		this.bind()
 
 		this.juanBox = $("#juan_box")
 		this.splite = $(".splite")
+		this.sound = $("#sound")
+		this.wrap = $("#wrap")
+		this.rainy = document.getElementById("rainy")
 		this.paging = false
 		this.index = 1
 
+		this.bind()
 
 
 		//==========预加载图片
 		var preload = new PerLoad([
 			'bg.png',
 			'logo.png',
+			'corner.png',
 			'cal_bg.png',
 			'slipte.png',
 			'progress_bg.png',
@@ -214,6 +218,16 @@ $(function() {
 			}
 		})
 
+		this.sound.on("click", function(){
+			if(!self.rainy.muted) {
+				self.sound.attr("src", "image/sound_close.png")
+				self.rainy.muted = true
+			}else{
+				self.sound.attr("src", "image/sound_open.png")
+				self.rainy.muted = false
+			}
+		})
+
 		_w.on("start", function() {
 			setTimeout(function() {
 				$(".loading").addClass("over")
@@ -223,19 +237,18 @@ $(function() {
 			}, 2000)
 		})
 
-
 		var startY = endY = 0
-		_w.on("touchstart", function(e) {
+		this.wrap.on("touchstart", function(e) {
 			endY = 0
 			startY = e.originalEvent.touches[0].pageY
 		})
 
-		_w.on("touchmove", function(e) {
+		this.wrap.on("touchmove", function(e) {
 			e.preventDefault()
 			endY = e.originalEvent.touches[0].pageY
 		})
 
-		_w.on("touchend", function() {
+		this.wrap.on("touchend", function() {
 			if (startY != endY) {
 				if (endY > startY) {
 					self.prePage()
@@ -333,6 +346,7 @@ $(function() {
 	}
 
 	FRW.prototype.renderStep = function(step) {
+		
 		switch (step) {
 			case 1:
 				wrap_body.html(PAGE_1);
@@ -423,17 +437,16 @@ $(function() {
 			"background": "url(" + imageRoot + "bg_mask.png) 0 0 repeat #8c0203"
 		})
 		$(".cal_stuff").transition({
-				"y": -600,
-				"opacity": 0
-			}, function() {
-				$(this).remove()
-				$("body").css({
-					"overflow": "visible",
-					"padding": 0
-				})
-
+			"y": -600,
+			"opacity": 0
+		}, function() {
+			$(this).remove()
+			$("body").css({
+				"overflow": "visible",
+				"padding": 0
 			})
-			// $(".f_body").height($(".f_body").height())
+
+		})
 		$("#footer").transition({
 			"y": 300
 		}, function() {

@@ -49,8 +49,7 @@ p img {
 img {
 	border: 0;
 	max-width: 100%;
-	-webkit-touch-callout:none;
-	/*不能复制图片*/
+	-webkit-touch-callout: none; /* 不能复制图片 */
 }
 table {
 	width: auto;
@@ -94,16 +93,24 @@ ul {
 	}
 }
 #wrap {
-	height: 77%;
+	height: 80%;
 	overflow: hidden;
+	position: relative;
 	.body {
 		border-left: 1px solid #ACA6A2;
 		border-right: 1px solid #ACA6A2;
 		background-color: #EEE9E3;
-		height: 100%;
+		height: 97%;
 		text-align: center;
 		position: relative;
 		overflow: hidden;
+		padding-bottom: 5%;
+	}
+	.corner {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 10%;
 	}
 	.splite {
 		width: 100%;
@@ -137,11 +144,11 @@ ul {
 	-ms-backface-visibility: hidden;
 }
 .cal_bg {
-	margin-top: -1px;
+	top: -1px;
 	z-index: 201;
 	position: relative;
 }
-#loading-page{
+#loading-page {
 	margin-top: 7%;
 }
 #loading {
@@ -192,7 +199,7 @@ ul {
 }
 #loading-foot {
 	position: absolute;
-	bottom: 0;
+	bottom: 7%;
 	left: 0;
 	right: 0;
 	.transition(transform ease 1s);
@@ -365,8 +372,8 @@ ul {
 	width: 7%;
 	display: block;
 	position: absolute;
-	right: 5%;
-	top: 10px;
+	right: 8%;
+	top: 5%;
 	z-index: 2;
 }
 #page1 {
@@ -401,7 +408,7 @@ ul {
 	}
 	.kz {
 		width: 24%;
-		top: 18%;
+		top: 26%;
 		left: 4%;
 	}
 	.yun {
@@ -419,7 +426,7 @@ ul {
 	}
 	.footer {
 		position: absolute;
-		bottom: 26px;
+		bottom: 9%;
 		margin: 0 20px;
 		.b1, .b2 {
 			position: relative;
@@ -443,7 +450,7 @@ ul {
 }
 #page2 {
 	border: 3px solid #231815;
-	height: 95%;
+	height: 90%;;
 	width: 90%;
 	margin: 5% auto 0;
 	position: relative;
@@ -454,7 +461,7 @@ ul {
 	.woman {
 		width: 53%;
 		top: 20px;
-		right: 5px;
+		right: 0;
 		.transform(translate(200px, 0));
 		opacity: 0;
 	}
@@ -515,7 +522,7 @@ ul {
 		p {
 			color: white;
 			line-height: 1.5em;
-			font-size: 2em;
+			font-size: 1.9em;
 			margin: 0;
 			padding: 0;
 			opacity: 0;
@@ -524,7 +531,7 @@ ul {
 }
 #page3 {
 	border: 3px solid #035596;
-	height: 95%;
+	height: 90%;;
 	width: 90%;
 	margin: 5% auto 0;
 	position: relative;
@@ -577,7 +584,7 @@ ul {
 /* C95701 */
 #page4 {
 	border: 3px solid #C95701;
-	height: 95%;
+	height: 90%;;
 	width: 90%;
 	margin: 5% auto 0;
 	position: relative;
@@ -636,7 +643,7 @@ ul {
 }
 #page5 {
 	border: 3px solid #812D4E;
-	height: 95%;
+	height: 90%;;
 	width: 90%;
 	margin: 5% auto 0;
 	position: relative;
@@ -685,12 +692,12 @@ ul {
 }
 #page6 {
 	border: 3px solid #1A345D;
-	height: 95%;
+	height: 90%;;
 	width: 90%;
 	margin: 5% auto 0;
 	position: relative;
 	overflow: hidden;
-	.oldman,.insure {
+	.oldman, .insure {
 		position: absolute;
 		width: 85%;
 		opacity: 0;
@@ -788,7 +795,7 @@ ul {
 		left: 8%;
 	}
 	.yan {
-		width: 37.5%;
+		width: 43.5%;
 		left: 0;
 		right: 0;
 		top: 16%;
@@ -846,38 +853,37 @@ ul {
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 400;
 	display: none;
-	.bear{
+	.bear {
 		width: 10%;
 		position: absolute;
 		opacity: 0;
 	}
-	.bear_1{
+	.bear_1 {
 		top: 2%;
 		right: 10%;
 		.transform(rotateZ(70deg));
 	}
-	.bear_2{
+	.bear_2 {
 		top: 10%;
 		right: 23%;
 		.transform(rotateZ(50deg));
-
 	}
-	.bear_3{
+	.bear_3 {
 		top: 21%;
 		right: 34%;
 		.transform(rotateZ(40deg));
 	}
-	.bear_4{
+	.bear_4 {
 		top: 34%;
 		right: 40%;
 		.transform(rotateZ(20deg));
 	}
-	.bear_5{
+	.bear_5 {
 		top: 46%;
 		right: 30%;
 		.transform(rotateZ(0deg));
 	}
-	p{
+	p {
 		position: absolute;
 		top: 55%;
 		right: 29%;
