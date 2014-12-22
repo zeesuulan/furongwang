@@ -111,6 +111,7 @@ ul {
 		bottom: 0;
 		right: 0;
 		width: 10%;
+		.animation(blink 3s infinite);
 	}
 	.splite {
 		width: 100%;
@@ -372,7 +373,7 @@ ul {
 #sound {
 	width: 22px;
 	display: block;
-	position: absolute;
+	position: fixed;
 	right: 8%;
 	bottom: 9%;
 	z-index: 2;
@@ -891,4 +892,28 @@ ul {
 		color: white;
 		font-size: 2em;
 	}
+}
+
+@keyframes blink{
+	0% { opacity: 0;}
+	50% { opacity: 1;}
+	100% { opacity: 0;}
+}
+
+@-webkit-keyframes blink{
+	0% { opacity: 0;}
+	50% { opacity: 1;}
+	100% { opacity: 0;}
+}
+
+@-o-keyframes blink{
+	0% { opacity: 0;}
+	50% { opacity: 1;}
+	100% { opacity: 0;}
+}
+
+@-moz-keyframes blink{
+	0% { opacity: 0;}
+	50% { opacity: 1;}
+	100% { opacity: 0;}
 }

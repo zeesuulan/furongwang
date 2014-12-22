@@ -145,10 +145,9 @@ $(function() {
 		this.sound = $("#sound")
 		this.wrap = $("#wrap")
 		this.paging = false
-		this.index = 7
+		this.index = 1
 
 		this.bind()
-
 
 		//==========预加载图片
 		var preload = new PerLoad([
@@ -203,7 +202,6 @@ $(function() {
 			'bear.png',
 			'mask.png'
 		])
-
 	}
 
 	FRW.prototype.bind = function() {
@@ -212,7 +210,6 @@ $(function() {
 			self = this
 
 		rainy.play()
-		rainy.volume = 0
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -222,7 +219,6 @@ $(function() {
 		})
 
 		this.sound.on("click", function() {
-
 			if (!rainy.paused) {
 				self.sound.attr("src", "image/sound_close.png")
 				rainy.pause()
@@ -289,7 +285,7 @@ $(function() {
 
 	FRW.prototype.prePage = function() {
 
-		if (this.paging) return
+		// if (this.paging) return
 
 		var self = this
 		this.paging = true
@@ -320,7 +316,7 @@ $(function() {
 	}
 
 	FRW.prototype.nextPage = function() {
-		if (this.paging) return
+		// if (this.paging) return
 
 		var self = this
 		this.paging = true
@@ -342,6 +338,7 @@ $(function() {
 				})
 				self.paging = false
 				self.renderStep(++self.index)
+				
 				if (self.index > 1) {
 					self.splite.show()
 				}
