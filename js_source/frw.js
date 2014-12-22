@@ -209,7 +209,7 @@ $(function() {
 			rainy = new Audio("rainy.mp3"),
 			self = this
 
-		// rainy.play()
+		rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
