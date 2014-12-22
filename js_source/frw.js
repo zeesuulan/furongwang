@@ -209,7 +209,7 @@ $(function() {
 			rainy = new Audio("rainy.mp3"),
 			self = this
 
-		rainy.play()
+		// rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -393,6 +393,7 @@ $(function() {
 		$("#form").transition({
 			"height": "100%"
 		})
+		// $("#form").hide()
 		$(".f_body").css({
 			"height": "200px"
 		}).transition({
@@ -487,6 +488,14 @@ $(function() {
 			var lead = $(this).attr("id").replace("_list", "")
 			$(".sel_txt[lead='" + lead + "']").html($(evt.target).html())
 			$(this).hide()
+		})
+
+		$(".protocol").on("click", function(){
+			$("#protocal").show()
+		})
+
+		$("#protocal").on("click", ".close", function(){
+			$("#protocal").hide()
 		})
 	}
 
