@@ -129,7 +129,7 @@ $(function() {
 			'<img src="' + imageRoot + 'jianding.png" class="jianding">',
 			'<div class="txt">',
 			'    <p>真诚的邀请您成为我们的君信品鉴师</p>',
-			'    <p>您将有机会免费获得一盒君信芙蓉王</p>',
+			'    <p>您将有机会免费获得一盒芙蓉王君信</p>',
 			'</div>',
 			'</div>'
 		].join("")
@@ -146,6 +146,7 @@ $(function() {
 		this.wrap = $("#wrap")
 		this.paging = false
 		this.index = 1
+		this.rainy = new Audio("rainy.mp3")
 
 		this.bind()
 
@@ -206,10 +207,9 @@ $(function() {
 
 	FRW.prototype.bind = function() {
 		var loading_p = new Progress(".loading"),
-			rainy = new Audio("rainy.mp3"),
 			self = this
 
-		rainy.play()
+		this.rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -219,6 +219,7 @@ $(function() {
 		})
 
 		this.sound.on("click", function() {
+			var rainy = self.rainy
 			if (!rainy.paused) {
 				self.sound.attr("src", "image/sound_close.png")
 				rainy.pause()
@@ -431,6 +432,11 @@ $(function() {
 			"opacity": 1,
 			"delay": 3000
 		})
+	}
+
+	FRW.prototype.stopMusic = function(){
+		this.rainy.pause()
+		$("#sound").remove()
 	}
 
 	function step_9() {
@@ -885,6 +891,7 @@ $(function() {
 		frw.submitOK()
 	})
 	_w.on("form", function() {
+		frw.stopMusic()
 		frw.unbind()
 	})
 })
