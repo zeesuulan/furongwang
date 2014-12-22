@@ -27,7 +27,7 @@ $(function() {
 			'<img src="' + imageRoot + 'bian.png" class="bian b1">',
 			'<p>我们认为：君子之交，要以</p>',
 			'<p>诚信为本，以信示人，言出由衷，始终不渝</p>',
-			'<p>但生活中，我们依旧发现这样的栗子......</p>',
+			'<p>但生活中，我们依旧发现这样的例子......</p>',
 			'<img src="' + imageRoot + 'bian.png" class="bian b2">',
 			'</div>',
 			'</div>'
@@ -63,7 +63,7 @@ $(function() {
 		PAGE_4 = ['<div id="page4">',
 			'<img src="' + imageRoot + 'o.png" class="orange o">',
 			'<img src="' + imageRoot + 'o2.png" class="orange o2">',
-			'<img src="' + imageRoot + 'o3.png" class="orange o3">',
+			'<img src="' + imageRoot + 'o3.png" class="o3">',
 			'<img src="' + imageRoot + 'o_txt.png" class="o_txt">',
 			'<img src="' + imageRoot + 'o_man.png" class="o_man">',
 			'<div class="footer">',
@@ -145,7 +145,7 @@ $(function() {
 		this.sound = $("#sound")
 		this.wrap = $("#wrap")
 		this.paging = false
-		this.index = 1
+		this.index = 7
 
 		this.bind()
 
@@ -212,6 +212,7 @@ $(function() {
 			self = this
 
 		rainy.play()
+		rainy.volume = 0
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -220,12 +221,12 @@ $(function() {
 			}
 		})
 
-		this.sound.on("click", function(){
-			
-			if(!rainy.paused) {
+		this.sound.on("click", function() {
+
+			if (!rainy.paused) {
 				self.sound.attr("src", "image/sound_close.png")
 				rainy.pause()
-			}else{
+			} else {
 				self.sound.attr("src", "image/sound_open.png")
 				rainy.play()
 			}
@@ -349,7 +350,7 @@ $(function() {
 	}
 
 	FRW.prototype.renderStep = function(step) {
-		
+
 		switch (step) {
 			case 1:
 				wrap_body.html(PAGE_1);
@@ -395,9 +396,10 @@ $(function() {
 		$("#form").transition({
 			"height": "100%"
 		})
-		$(".f_body").transition({
+		$(".f_body").css({
+			"height": "200px"
+		}).transition({
 			"scale": ".5",
-			"height": "200px",
 			"overflow": "hidden",
 			"rotateY": 180,
 			"opacity": 0
@@ -531,8 +533,8 @@ $(function() {
 	function step_7() {
 		var list_1 = $("#list_1"),
 			list_2 = $("#list_2"),
-			list_1_span = list_1.find("span")
-		len = list_1_span.length,
+			list_1_span = list_1.find("span"),
+			len = list_1_span.length,
 			index = 0,
 			cid = 0,
 			loading = new Progress(".loading_8"),
@@ -552,7 +554,10 @@ $(function() {
 				"opacity": 1,
 				"delay": duration * 4
 			}, duration, function() {
-				loading.render(100, false, duration)
+				loading.render(20, false, duration * 3)
+				setTimeout(function() {
+					loading.render(100, false, duration)
+				}, duration)
 			})
 		})
 
@@ -650,7 +655,12 @@ $(function() {
 		$(".orange").transition({
 			"opacity": 1,
 			"delay": 1000
+		}, function() {
+			$(".o3").transition({
+				"opacity": 1
+			})
 		})
+
 
 		setTimeout(function() {
 			$(".o2").transition({
