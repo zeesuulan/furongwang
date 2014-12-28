@@ -50,17 +50,17 @@
                 <form method="post" id="frw_form">
                     <p>申请人</p>
                     <div class="form_control">
-                        <input type="text" name="name">
+                        <input type="text" name="name" id="username">
                     </div>
                     <p>性别</p>
                     <div class="form_control noborder">
                         <span class="gender sel" data="1">男</span>
                         <span class="gender" data="0">女</span>
-                        <input type="hidden" name="gender">
+                        <input type="hidden" name="gender" id="gender" value="1">
                     </div>
                     <p>手机号码</p>
                     <div class="form_control">
-                        <input type="text" name="phone" placeholder="我们将通过此号码与您取得联系。">
+                        <input type="text" name="phone" id="phone" placeholder="我们将通过此号码与您取得联系。">
                     </div>
                     <p>选择年龄段</p>
                     <div class="form_control sel" class="">
@@ -73,7 +73,7 @@
                             <li>60岁-69岁</li>
                             <li>70岁以上</li>
                         </ul>
-                        <input type="hidden" name="age">
+                        <input type="hidden" name="age" value="40岁-49岁" id="age">
                     </div>
                     <p>选择每月平均收入范围</p>
                     <div class="form_control sel">
@@ -85,7 +85,7 @@
                             <li>9000-12000元/月</li>
                             <li>12000元/月以上</li>
                         </ul>
-                        <input type="hidden" name="salary">
+                        <input type="hidden" name="salary" value="3000-6000元/月" id="salary">
                     </div>
                     <p class="sel">您最喜欢芙蓉王旗下哪个系列</p>
                     <div class="form_control sel">
@@ -100,15 +100,15 @@
                             <li>芙蓉王（软蓝）</li>
                             <li>芙蓉王（钻石）</li>
                         </ul>
-                        <input type="hidden" name="favor">
+                        <input type="hidden" name="favor" value="芙蓉王（硬黄）" id="favor">
                     </div>
                     <p>您经常抽哪个品牌的烟</p>
                     <div class="form_control">
-                        <input type="text" name="yan">
+                        <input type="text" name="yan" id="cigaret">
                     </div>
                     <p>您的业余爱好</p>
                     <div class="form_control">
-                        <input type="text" name="like">
+                        <input type="text" name="like" id="hobby">
                     </div>
                     <div style="margin-top: 10%;position:relative">
                         <div class="form_control noborder">

@@ -145,7 +145,7 @@ $(function() {
 		this.sound = $("#sound")
 		this.wrap = $("#wrap")
 		this.paging = false
-		this.index = 1
+		this.index = 8
 		this.rainy = new Audio("rainy.mp3")
 
 		this.bind()
@@ -209,7 +209,8 @@ $(function() {
 		var loading_p = new Progress(".loading"),
 			self = this
 
-		this.rainy.play()
+		this.rainy.loop = true
+		// this.rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -490,9 +491,11 @@ $(function() {
 			ageList.hide()
 			$("#" + $(this).attr("lead") + "_list").show()
 		})
+
 		ageList.on("click", function(evt) {
 			var lead = $(this).attr("id").replace("_list", "")
 			$(".sel_txt[lead='" + lead + "']").html($(evt.target).html())
+			$("input[name='"+lead+"']").val($(evt.target).html())
 			$(this).hide()
 		})
 
@@ -887,8 +890,24 @@ $(function() {
 	var frw = new FRW()
 
 	_w.on("submitclick", function() {
+		console.log('here')
+		var url = "/junxin/recruit"
+		$.post(url, {
+			"username": $("#username").val(),
+			"gender": $("#gender").val(),
+			"phone": $("#phone").val(),
+			"age": $("#age").val(),
+			"salary": $("#salary").val(),
+			"favor": $("#favor").val(),
+			"cigaret": $("#cigaret").val(),
+			"hobby": $("#hobby").val()
+		}, function(data){
 
-		frw.submitOK()
+		}, "json")
+
+
+
+		// frw.submitOK()
 	})
 	_w.on("form", function() {
 		frw.stopMusic()

@@ -21,6 +21,7 @@ module.exports = function(grunt) {
                     // '/api': 'http://mobile.hunantv.com/',
                     // '/video': 'http://mobile.hunantv.com/',
                     // '/Search': 'http://mobile.hunantv.com/'
+                    '/junxin': 'http://112.124.104.49/'
                   },
                   headers: {
                     'Host': 'mobile.hunantv.com',
