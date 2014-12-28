@@ -210,7 +210,7 @@ $(function() {
 			self = this
 
 		this.rainy.loop = true
-		// this.rainy.play()
+			// this.rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -340,7 +340,7 @@ $(function() {
 				})
 				self.paging = false
 				self.renderStep(++self.index)
-				
+
 				if (self.index > 1) {
 					self.splite.show()
 				}
@@ -393,9 +393,9 @@ $(function() {
 	FRW.prototype.submitOK = function() {
 		$(".num").remove()
 		$("#form").transition({
-			"height": "100%"
-		})
-		// $("#form").hide()
+				"height": "100%"
+			})
+			// $("#form").hide()
 		$(".f_body").css({
 			"height": "200px"
 		}).transition({
@@ -435,7 +435,7 @@ $(function() {
 		})
 	}
 
-	FRW.prototype.stopMusic = function(){
+	FRW.prototype.stopMusic = function() {
 		this.rainy.pause()
 		$("#sound").remove()
 	}
@@ -471,14 +471,7 @@ $(function() {
 		})
 
 		$(".submit").on("click", function() {
-			$(".submited").css({
-				"x": 0
-			}).transition({
-				"scale": 1,
-				"opacity": 1
-			}, 500, function() {
-				_w.trigger("submitclick")
-			})
+			_w.trigger("submitclick")
 		})
 
 		$(".gender").on("click", function() {
@@ -495,15 +488,15 @@ $(function() {
 		ageList.on("click", function(evt) {
 			var lead = $(this).attr("id").replace("_list", "")
 			$(".sel_txt[lead='" + lead + "']").html($(evt.target).html())
-			$("input[name='"+lead+"']").val($(evt.target).html())
+			$("input[name='" + lead + "']").val($(evt.target).html())
 			$(this).hide()
 		})
 
-		$(".protocol").on("click", function(){
+		$(".protocol").on("click", function() {
 			$("#protocal").show()
 		})
 
-		$("#protocal").on("click", ".close", function(){
+		$("#protocal").on("click", ".close", function() {
 			$("#protocal").hide()
 		})
 	}
@@ -890,24 +883,36 @@ $(function() {
 	var frw = new FRW()
 
 	_w.on("submitclick", function() {
-		console.log('here')
-		var url = "/junxin/recruit"
-		$.post(url, {
-			"username": $("#username").val(),
-			"gender": $("#gender").val(),
-			"phone": $("#phone").val(),
-			"age": $("#age").val(),
-			"salary": $("#salary").val(),
-			"favor": $("#favor").val(),
-			"cigaret": $("#cigaret").val(),
-			"hobby": $("#hobby").val()
-		}, function(data){
 
+		var url = "/junxin/recruit/post"
+		$.post(url, {
+			"User": {
+				"username": $("#username").val(),
+				"gender": $("#gender").val(),
+				"phone": $("#phone").val(),
+				"age": $("#age").val(),
+				"salary": $("#salary").val(),
+				"favor": $("#favor").val(),
+				"cigaret": $("#cigaret").val(),
+				"hobby": $("#hobby").val()
+			}
+		}, function(data) {
+			if (data.status == 200) {
+				$(".submited").css({
+					"x": 0
+				}).transition({
+					"scale": 1,
+					"opacity": 1
+				}, 500, function() {
+					frw.submitOK()
+				})
+			} else {
+				alert(data.message)
+			}
 		}, "json")
 
 
 
-		// frw.submitOK()
 	})
 	_w.on("form", function() {
 		frw.stopMusic()
