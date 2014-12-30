@@ -146,7 +146,7 @@ $(function() {
 		this.wrap = $("#wrap")
 		this.paging = false
 		this.index = 1
-		this.rainy = new Audio("rainy.mp3")
+		this.rainy = $("#rainy")[0]
 
 		this.bind()
 
@@ -210,13 +210,17 @@ $(function() {
 			self = this
 
 		this.rainy.loop = true
-		this.rainy.play()
+		
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
 			if (per == 1) {
 				_w.trigger("start")
 			}
+		})
+
+		$('html').one('touchstart',function(){ 
+			rainy.play()
 		})
 
 		this.sound.on("click", function() {
@@ -228,7 +232,7 @@ $(function() {
 				self.sound.attr("src", "image/sound_open.png")
 				rainy.play()
 			}
-		})
+		}).click()
 
 		_w.on("start", function() {
 			setTimeout(function() {
