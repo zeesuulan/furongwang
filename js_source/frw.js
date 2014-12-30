@@ -145,7 +145,7 @@ $(function() {
 		this.sound = $("#sound")
 		this.wrap = $("#wrap")
 		this.paging = false
-		this.index = 8
+		this.index = 1
 		this.rainy = new Audio("rainy.mp3")
 
 		this.bind()
