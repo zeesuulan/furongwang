@@ -210,7 +210,7 @@ $(function() {
 			self = this
 
 		this.rainy.loop = true
-			// this.rainy.play()
+		this.rainy.play()
 			//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
@@ -392,7 +392,7 @@ $(function() {
 
 	FRW.prototype.submitOK = function() {
 		$(".num").remove()
-		$("#form").transition({
+		$("#form").css({
 				"height": "100%"
 			})
 			// $("#form").hide()
@@ -405,7 +405,7 @@ $(function() {
 			"opacity": 0
 		})
 		$(".letter").css({
-			"rotateY": -180,
+			"rotateY": -180
 		}).transition({
 			"rotateY": 0,
 			"opacity": 1,
