@@ -210,8 +210,8 @@ $(function() {
 			self = this
 
 		this.rainy.loop = true
-		
-			//======监听事件
+
+		//======监听事件
 		_w.on("imgLoaded", function(evt, per) {
 			loading_p.render(per * 100, false, 0)
 			if (per == 1) {
@@ -219,7 +219,7 @@ $(function() {
 			}
 		})
 
-		$('html').one('touchstart',function(){ 
+		$('html').one('touchstart', function() {
 			rainy.play()
 		})
 
@@ -922,44 +922,25 @@ $(function() {
 		frw.stopMusic()
 		frw.unbind()
 	})
+
+	WeixinApi.enableDebugMode();
+	WeixinApi.ready(function(Api) {
+
+		// 微信分享的数据
+		var wxData = {
+			"appId": "", // 服务号可以填写appId
+			"imgUrl": 'image/xin.png',
+			"link": "asdasd",
+			"async": true,
+			"desc": '真诚的邀请您成为我们的君信品鉴师，您将有机会免费获得一盒芙蓉王《君.信》',
+			"title": "芙蓉王《君.信》征集500名君子品鉴师"
+		},wxCallbacks = function(){}
+
+		Api.shareToFriend(wxData, wxCallbacks);
+		// 点击分享到朋友圈，会执行下面这个代码
+		Api.shareToTimeline(wxData, wxCallbacks);
+		// 点击分享到腾讯微博，会执行下面这个代码
+		Api.shareToWeibo(wxData, wxCallbacks);
+	});
+
 })
-
-window.WX_SHARE = function(e) {
-	function i() {
-		WeixinJSBridge.on("menu:share:appmessage", function() {
-			WeixinJSBridge.invoke("sendAppMessage", {
-				// appid: "wxbbc6e0adf8944632",
-				img_width: "290",
-				img_height: "290",
-				img_url: e.image,
-				title: e.title,
-				desc: e.desc,
-				link: e.link
-			}, function() {})
-		})
-	}
-
-	function n() {
-		WeixinJSBridge.on("menu:share:timeline", function() {
-			WeixinJSBridge.invoke("shareTimeline", {
-				// appid: "wxbbc6e0adf8944632",
-				img_width: "290",
-				img_height: "290",
-				img_url: e.image,
-				title: e.title,
-				desc: e.desc,
-				link: e.link
-			}, function() {})
-		})
-	}
-
-	function t() {
-		WeixinJSBridge.on("menu:share:weibo", function() {
-			WeixinJSBridge.invoke("shareWeibo", {
-				content: e.desc,
-				url: e.link
-			}, function() {})
-		})
-	}
-	document.addEventListener && (document.addEventListener("WeixinJSBridgeReady", i, !1), document.addEventListener("WeixinJSBridgeReady", t, !1), document.addEventListener("WeixinJSBridgeReady", n, !1))
-}

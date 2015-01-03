@@ -73,6 +73,7 @@ module.exports = function(grunt) {
           'js/frw.js': ['js_source/jquery.min.js',
                         'js_source/jquery.transit.js',
                         'js_source/mustache.js',
+                        'js_source/WeixinApi.js',
                         'js_source/frw.js'],
         }
       }
